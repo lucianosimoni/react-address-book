@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ContactsAdd(props) {
+function ContactAdd(props) {
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
@@ -35,4 +35,4 @@ function ContactsAdd(props) {
   );
 }
 
-export default ContactsAdd;
+export default ContactAdd;

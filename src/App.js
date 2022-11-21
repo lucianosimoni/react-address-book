@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import ContactsList from "./components/ContactsList";
-import ContactsAdd from "./components/ContactsAdd";
+import ContactAdd from "./components/ContactAdd";
 import ContactEdit from "./components/ContactEdit";
-import ContactsView from "./components/ContactsView";
+import ContactView from "./components/ContactView";
 import "./styles/styles.css";
 
 export default function App() {
@@ -51,7 +51,8 @@ export default function App() {
             path="/contacts/"
             element={<ContactsList contacts={contacts} />}
           />
-          <Route path="/contacts/add/" element={<ContactsAdd />} />
+          <Route path="/contacts/:id" element={<ContactView />} />
+          <Route path="/contacts/add/" element={<ContactAdd />} />
           <Route path="/contacts/edit/:id" element={<ContactEdit />} />
         </Routes>
       </main>
