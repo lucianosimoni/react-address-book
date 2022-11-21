@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import ConstactCard from "./ContactsCard";
+import ConstactCard from "./ContactCard";
 
 function ContactsList(props) {
   //"contacts" must be passed as prop to this component

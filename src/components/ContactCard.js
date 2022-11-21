@@ -8,7 +8,11 @@ function ConstactCard({ name, username, email, type }) {
       <p>{email}</p>
       <span>Username:</span>
       <p>{username}</p>
-      <button>View</button>
+      <button className="view-btn">View</button>
+
+      <div className="edit-btn">
+        <span className="material-symbols-outlined">edit</span>
+      </div>
     </div>
   );
 }

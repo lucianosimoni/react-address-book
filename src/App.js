@@ -4,6 +4,7 @@ import ContactsList from "./components/ContactsList";
 import ContactsAdd from "./components/ContactsAdd";
 import ContactsView from "./components/ContactsView";
 import "./styles/styles.css";
+import { Helmet } from "react-helmet";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
@@ -28,6 +29,13 @@ export default function App() {
 
   return (
     <>
+      <Helmet>
+        <title>Address Book - Luciano</title>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
+      </Helmet>
       <nav>
         <h2>Menu</h2>
         <ul>

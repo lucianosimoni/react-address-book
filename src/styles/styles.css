@@ -31,6 +31,10 @@ select {
   font: inherit;
 }
 
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
 .link {
   text-decoration: none;
 }
@@ -133,8 +137,8 @@ select {
 .contact-card p:last-of-type {
   margin-bottom: 1rem;
 }
-/* CARD - BUTTON */
-.contact-card button {
+/* CARD - VIEW BUTTON */
+.contact-card .view-btn {
   margin-top: auto;
 
   height: 50px;
@@ -148,12 +152,40 @@ select {
 
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) filter 1s;
 }
-.contact-card button:hover {
+.contact-card .view-btn:hover {
   filter: brightness(92%);
   cursor: pointer;
 }
-.contact-card button:active {
+.contact-card .view-btn:active {
   filter: brightness(88%);
+}
+/* CARD - EDIT BUTTON */
+.contact-card .edit-btn {
+  display: flex;
+  scale: 0;
+
+  position: absolute;
+  right: -20px;
+  top: -20px;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+
+  border: 1px solid #e1e1e1;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+  transition: ease scale 0.2s, ease filter 0.1s;
+}
+.contact-card .edit-btn:active {
+  filter: brightness(92%);
+}
+.contact-card:hover .edit-btn {
+  cursor: pointer;
+  scale: 1;
 }
 
 /* ADD CARD */
