@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import ConstactCard from "./ContactsCard";
 
 function ContactsList(props) {
   //"contacts" must be passed as prop to this component
   const { contacts } = props;
-
   return (
     <>
       <header>
@@ -12,14 +12,14 @@ function ContactsList(props) {
       </header>
       <ul className="contacts-list">
         {contacts.map((person, index) => {
-          const { name, username } = person;
           return (
-            <li className="contact" key={index}>
-              <p>
-                {name} - {username}
-              </p>
-              <p>View</p>
-            </li>
+            <ConstactCard
+              key={index}
+              name={person.name}
+              username={person.username}
+              email={person.email}
+              type={person.type}
+            />
           );
         })}
       </ul>

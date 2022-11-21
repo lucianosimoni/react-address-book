@@ -31,7 +31,6 @@ export default function App() {
       <nav>
         <h2>Menu</h2>
         <ul>
-          {/* TODO: Make these links */}
           <li>
             <Link to={"/list/"}>Contacts List</Link>
           </li>
