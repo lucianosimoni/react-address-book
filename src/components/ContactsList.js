@@ -6,7 +6,7 @@ function ContactsList(props) {
   //"contacts" must be passed as prop to this component
   const { contacts } = props;
   return (
-    <>
+    <main>
       <header>
         <h2>Contacts</h2>
       </header>
@@ -28,7 +28,7 @@ function ContactsList(props) {
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 }
 
