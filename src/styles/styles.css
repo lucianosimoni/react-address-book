@@ -109,8 +109,8 @@ h2 {
 
 /* WRAPPER */
 .contacts-list {
-  /* max-width: 400px; */
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
   gap: 2rem;
 }
 
@@ -118,6 +118,7 @@ h2 {
 .contact-card {
   display: flex;
   flex-flow: column;
+  box-sizing: border-box;
 
   width: 200px;
   padding: 1rem;
