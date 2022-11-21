@@ -10,7 +10,7 @@ function ContactsList(props) {
       <header>
         <h2>Contacts</h2>
       </header>
-      <ul className="contacts-list">
+      <div className="contacts-list">
         {contacts.map((person, index) => {
           return (
             <ConstactCard
@@ -22,7 +22,12 @@ function ContactsList(props) {
             />
           );
         })}
-      </ul>
+        <div className="contact-card-add noselect">
+          <div className="inner">
+            <h2>+</h2>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
