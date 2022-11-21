@@ -137,8 +137,13 @@ h2 {
   text-align: center;
   color: #1b1b1b;
   margin-bottom: 1rem;
-  /* background-color: #add6ce; */
   border-radius: 50px 50px 0 0;
+
+  padding: 0 10px;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .contact-card span {
   color: #868686;
@@ -146,6 +151,10 @@ h2 {
 .contact-card p {
   color: #1b1b1b;
   font-weight: bold;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .contact-card p:last-of-type {
   margin-bottom: 1rem;
