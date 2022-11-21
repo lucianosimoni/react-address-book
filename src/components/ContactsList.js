@@ -22,11 +22,15 @@ function ContactsList(props) {
             />
           );
         })}
-        <div className="contact-card-add noselect">
-          <div className="inner">
-            <h2>+</h2>
+
+        {/* ADD CONTACT CARD */}
+        <Link className="link noselect" to={"/contacts/add/"}>
+          <div className="contact-card-add noselect">
+            <div className="inner">
+              <h2>+</h2>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </main>
   );

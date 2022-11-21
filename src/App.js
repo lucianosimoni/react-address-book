@@ -32,16 +32,16 @@ export default function App() {
         <h2>Menu</h2>
         <ul>
           <li>
-            <Link to={"/list/"}>Contacts List</Link>
-          </li>
-          <li>
-            <Link to={"/list/add/"}>Add New Contact</Link>
+            <Link to={"/contacts/"}>Contacts List</Link>
           </li>
         </ul>
       </nav>
       <main>
         <Routes>
-          <Route path="/list/" element={<ContactsList contacts={contacts} />} />
+          <Route
+            path="/contacts/"
+            element={<ContactsList contacts={contacts} />}
+          />
           <Route path="/list/add/" element={<ContactsAdd />} />
         </Routes>
       </main>
