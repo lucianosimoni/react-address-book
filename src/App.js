@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import ContactsList from "./components/ContactsList";
 import ContactsAdd from "./components/ContactsAdd";
+import ContactEdit from "./components/ContactEdit";
 import ContactsView from "./components/ContactsView";
 import "./styles/styles.css";
-import { Helmet } from "react-helmet";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
@@ -50,7 +51,8 @@ export default function App() {
             path="/contacts/"
             element={<ContactsList contacts={contacts} />}
           />
-          <Route path="/list/add/" element={<ContactsAdd />} />
+          <Route path="/contacts/add/" element={<ContactsAdd />} />
+          <Route path="/contacts/edit/:id" element={<ContactEdit />} />
         </Routes>
       </main>
     </>

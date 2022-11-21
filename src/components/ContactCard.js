@@ -1,4 +1,6 @@
-function ConstactCard({ name, username, email, type }) {
+import { Link } from "react-router-dom";
+
+function ConstactCard({ name, username, email, type, id }) {
   // Update BG color of h3 based on the person type
   const bgColor = type === "personal" ? "#cbcbcb" : "#add6ce";
   return (
@@ -10,9 +12,11 @@ function ConstactCard({ name, username, email, type }) {
       <p>{username}</p>
       <button className="view-btn">View</button>
 
-      <div className="edit-btn">
-        <span className="material-symbols-outlined">edit</span>
-      </div>
+      <Link to={`/contacts/edit/${id}`}>
+        <div className="edit-btn">
+          <span className="material-symbols-outlined">edit</span>
+        </div>
+      </Link>
     </div>
   );
 }

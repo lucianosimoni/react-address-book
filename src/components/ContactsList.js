@@ -19,6 +19,7 @@ function ContactsList(props) {
               username={person.username}
               email={person.email}
               type={person.type}
+              id={person.id}
             />
           );
         })}
