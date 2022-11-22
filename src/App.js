@@ -16,17 +16,20 @@ export default function App() {
     "https://eu3.ragic.com/lauec/address-book/2?api&APIKey=TVVHL3ZFUTB5TlB2WlF5dUR4WnorSkNoUjJKb1BwcFlWTFA4ekpJZFc0anB0aEpFVlJFaFRRaWpIQ0FqWXZEeHUyYjgzSEdVSTk5dkY2SzJVWTRQbUE9PQ%3D%3D";
 
   useEffect(() => {
-    const newContacts = [];
     fetch(apiURL)
       .then((res) => res.json())
       .then((data) => {
-        for (const key in data) {
-          const keyValue = data[key];
-          newContacts.push(keyValue);
-        }
-        setContacts([...newContacts]);
+        setContacts(Object.values(data));
       });
   }, []);
+
+  function fetchContacts() {
+    fetch(apiURL)
+      .then((res) => res.json())
+      .then((data) => {
+        setContacts(Object.values(data));
+      });
+  }
 
   return (
     <>

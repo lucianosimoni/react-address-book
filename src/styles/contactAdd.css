@@ -58,7 +58,7 @@ input[type="tel"] {
 
 /* Icons */
 section > span {
-  color: #b3b3b3;
+  color: #888888;
 
   position: absolute;
   top: 1.7rem;
@@ -66,29 +66,23 @@ section > span {
 }
 
 /* SECTION ANIMATION OF SCALE AND SHADOW */
-.bar-input {
+.section-bar-input {
   padding: 1rem;
   position: relative;
 
   transition: ease scale 0.2s;
 }
-.bar-input:hover {
+.section-bar-input:hover {
   scale: 1.05;
 }
-#name,
-#username,
-#email,
-#mobile {
+.bar-input {
   transition: ease box-shadow 0.2s;
 }
-.bar-input:hover #username,
-.bar-input:hover #name,
-.bar-input:hover #email,
-.bar-input:hover #mobile {
+.section-bar-input:hover > .bar-input {
   box-shadow: 5px 5px 10px #cacaca, -5px -5px 10px #f6f6f6;
 }
 
-/* First Page */
+/* First Page -----------------------------*/
 .sec-name {
   grid-area: name;
 }
@@ -177,7 +171,7 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Second Page */
+/* Second Page ---------------------------*/
 .sec-country {
   grid-area: country;
 }
@@ -211,6 +205,8 @@ input:checked + .slider:before {
 .create-btn {
   height: 50px;
   width: 100px;
+
+  color: #1b1b1b;
 
   border: 0;
   border-radius: 20px;

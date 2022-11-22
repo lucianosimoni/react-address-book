@@ -76,7 +76,7 @@ function ContactAdd(props) {
           // Set the Data to be either Work or Personal based on the input.
           dataClone[element.name] =
             element.value === "on" ? "work" : "personal";
-          continue;
+          continue; // Continue loop. Return here would stop the loop.
         }
 
         // Update key value
@@ -100,9 +100,10 @@ function ContactAdd(props) {
       {/* Render page 1 form or nothing */}
       {formPage === 1 ? (
         <form className="first-page-form" onSubmit={handleSubmit}>
-          <section className="sec-name bar-input">
+          <section className="sec-name section-bar-input">
             <span className="material-symbols-outlined">badge</span>
             <input
+              className="bar-input"
               id="name"
               placeholder="Name"
               name="1000030"
@@ -111,9 +112,10 @@ function ContactAdd(props) {
             />
           </section>
 
-          <section className="sec-username bar-input">
+          <section className="sec-username section-bar-input">
             <span className="material-symbols-outlined">person</span>
             <input
+              className="bar-input"
               id="username"
               placeholder="Username"
               name="1000049"
@@ -121,9 +123,10 @@ function ContactAdd(props) {
             />
           </section>
 
-          <section className="sec-email bar-input">
+          <section className="sec-email section-bar-input">
             <span className="material-symbols-outlined">alternate_email</span>
             <input
+              className="bar-input"
               id="email"
               placeholder="E-mail"
               name="1000048"
@@ -131,14 +134,21 @@ function ContactAdd(props) {
             />
           </section>
 
-          <section className="sec-mobile bar-input">
+          <section className="sec-mobile section-bar-input">
             <span className="material-symbols-outlined">smartphone</span>
-            <input id="mobile" placeholder="Mobile" name="1000033" type="tel" />
+            <input
+              className="bar-input"
+              id="mobile"
+              placeholder="Mobile"
+              name="1000033"
+              type="tel"
+            />
           </section>
 
-          <section className="sec-linkedin bar-input">
+          <section className="sec-linkedin section-bar-input">
             <span className="material-symbols-outlined">groups</span>
             <input
+              className="bar-input"
               id="linkedin"
               placeholder="LinkedIn"
               name="1000034"
@@ -146,9 +156,10 @@ function ContactAdd(props) {
             />
           </section>
 
-          <section className="sec-twitter bar-input">
+          <section className="sec-twitter section-bar-input">
             <span className="material-symbols-outlined">groups</span>
             <input
+              className="bar-input"
               id="twitter"
               placeholder="Twitter"
               name="1000035"
@@ -159,7 +170,7 @@ function ContactAdd(props) {
           <section className="sec-type">
             <p>Work Contact:</p>
             <label className="switch" id="switch">
-              <input type="checkbox" name="1000054" />
+              <input className="bar-input" type="checkbox" name="1000054" />
               <span className="slider"></span>
             </label>
           </section>
@@ -183,29 +194,58 @@ function ContactAdd(props) {
       {/* Render page 2 form or nothing */}
       {formPage === 2 ? (
         <form className="second-page-form" onSubmit={handleSubmit}>
-          <section className="sec-country">
-            <label htmlFor="1000036">Country:</label>
-            <input id="country" name="1000036" type="text" />
+          <section className="sec-country section-bar-input">
+            <span class="material-symbols-outlined">public</span>
+            <input
+              className="bar-input"
+              placeholder="Country"
+              id="country"
+              name="1000036"
+              type="text"
+            />
           </section>
 
-          <section className="sec-city">
-            <label htmlFor="1000047">City:</label>
-            <input id="city" name="1000047" type="text" />
+          <section className="sec-city section-bar-input">
+            <span class="material-symbols-outlined">apartment</span>
+            <input
+              className="bar-input"
+              placeholder="City"
+              id="city"
+              name="1000047"
+              type="text"
+            />
           </section>
 
-          <section className="sec-street">
-            <label htmlFor="1000044">Street:</label>
-            <input id="street" name="1000044" type="text" />
+          <section className="sec-street section-bar-input">
+            <span class="material-symbols-outlined">signpost</span>
+            <input
+              className="bar-input"
+              placeholder="Street"
+              id="street"
+              name="1000044"
+              type="text"
+            />
           </section>
 
-          <section className="sec-postcode">
-            <label htmlFor="1000045">Postcode:</label>
-            <input id="text" name="1000045" type="text" />
+          <section className="sec-postcode section-bar-input">
+            <span class="material-symbols-outlined">label</span>
+            <input
+              className="bar-input"
+              placeholder="Postcode"
+              id="postcode"
+              name="1000045"
+              type="text"
+            />
           </section>
 
-          <section className="sec-remarks">
+          <section className="sec-remarks section-bar-input">
             <label htmlFor="1000046">Remarks:</label>
-            <input id="remarks" name="1000046" type="text" />
+            <input
+              className="bar-input"
+              id="remarks"
+              name="1000046"
+              type="text"
+            />
           </section>
 
           <section className="sec-actions">
