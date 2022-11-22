@@ -278,7 +278,6 @@ function ContactAdd(props) {
                   <input
                     type="text"
                     id="title"
-                    name="title"
                     placeholder="Meeting Name *"
                     onChange={(event) => {
                       const meetingsArray = [...meetings];
@@ -293,26 +292,43 @@ function ContactAdd(props) {
                   <input
                     type="text"
                     id="location"
-                    name="location"
                     placeholder="Location"
+                    onChange={(event) => {
+                      const meetingsArray = [...meetings];
+                      meetingsArray[index].location = event.target.value;
+
+                      setMeetings([...meetingsArray]);
+                    }}
+                    required
                   ></input>
 
                   <label htmlFor="date">Date: *</label>
                   <input
                     type="date"
                     id="date"
-                    name="date"
                     placeholder="dd-MM-yyyy"
                     defaultValue="2022-02-02"
+                    onChange={(event) => {
+                      const meetingsArray = [...meetings];
+                      meetingsArray[index].date = event.target.value;
+
+                      setMeetings([...meetingsArray]);
+                    }}
+                    required
                   />
 
                   <label htmlFor="time">Time: *</label>
                   <input
                     placeholder="hh:mm"
-                    defaultValue="13:00"
                     id="time"
-                    name="time"
                     type="time"
+                    defaultValue="13:00"
+                    onChange={(event) => {
+                      const meetingsArray = [...meetings];
+                      meetingsArray[index].time = event.target.value;
+
+                      setMeetings([...meetingsArray]);
+                    }}
                     required
                   />
 
