@@ -71,8 +71,13 @@ function ContactAdd(props) {
       // If the Array of Keys from data includes the element name
       if (Object.keys(data).includes(element.name)) {
         // TODO: check for the type bool, and set it to either personal or work
-        console.log("Data includes checkbox!!!");
-        console.log("checkbox value: ", element.value);
+        if (element.name === "1000054") {
+          console.log("Checkbox is included");
+          // Set the Data to be either Work or Personal based on the input.
+          dataClone[element.name] =
+            element.value === "on" ? "work" : "personal";
+          continue;
+        }
 
         // Update key value
         dataClone[element.name] = element.value;
