@@ -195,7 +195,7 @@ function ContactAdd(props) {
       {formPage === 2 ? (
         <form className="second-page-form" onSubmit={handleSubmit}>
           <section className="sec-country section-bar-input">
-            <span class="material-symbols-outlined">public</span>
+            <span className="material-symbols-outlined">public</span>
             <input
               className="bar-input"
               placeholder="Country"
@@ -206,7 +206,7 @@ function ContactAdd(props) {
           </section>
 
           <section className="sec-city section-bar-input">
-            <span class="material-symbols-outlined">apartment</span>
+            <span className="material-symbols-outlined">apartment</span>
             <input
               className="bar-input"
               placeholder="City"
@@ -217,7 +217,7 @@ function ContactAdd(props) {
           </section>
 
           <section className="sec-street section-bar-input">
-            <span class="material-symbols-outlined">signpost</span>
+            <span className="material-symbols-outlined">signpost</span>
             <input
               className="bar-input"
               placeholder="Street"
@@ -228,7 +228,7 @@ function ContactAdd(props) {
           </section>
 
           <section className="sec-postcode section-bar-input">
-            <span class="material-symbols-outlined">label</span>
+            <span className="material-symbols-outlined">label</span>
             <input
               className="bar-input"
               placeholder="Postcode"

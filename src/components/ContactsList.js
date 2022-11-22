@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import ContactCard from "./ContactCard";
 
-function ContactsList(props) {
+function ContactsList({ contacts, fetchContacts }) {
   //"contacts" must be passed as prop to this component
-  const { contacts } = props;
   return (
     <main>
       <header>

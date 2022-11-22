@@ -56,7 +56,9 @@ export default function App() {
         <Routes>
           <Route
             path="/contacts/"
-            element={<ContactsList contacts={contacts} />}
+            element={
+              <ContactsList contacts={contacts} fetchContacts={fetchContacts} />
+            }
           />
           <Route path="/contacts/:id" element={<ContactView />} />
           <Route path="/contacts/add/" element={<ContactAdd />} />
