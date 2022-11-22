@@ -10,8 +10,6 @@ import "./styles/styles.css";
 export default function App() {
   const [contacts, setContacts] = useState([]);
 
-  //TODO: Load all contacts on useEffect when component first renders
-
   const apiURL =
     "https://eu3.ragic.com/lauec/address-book/2?api&APIKey=TVVHL3ZFUTB5TlB2WlF5dUR4WnorSkNoUjJKb1BwcFlWTFA4ekpJZFc0anB0aEpFVlJFaFRRaWpIQ0FqWXZEeHUyYjgzSEdVSTk5dkY2SzJVWTRQbUE9PQ%3D%3D";
 

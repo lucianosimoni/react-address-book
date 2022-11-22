@@ -3,37 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/contactAdd.css";
 
 function ContactAdd(props) {
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
   const { setContacts, contacts } = props;
-
-  const navigate = useNavigate();
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
-
-  // TODO:
-  // FIRST PAGE
-  // type (Top right? Switch Button )
-  // Title - Alternatives
-  // Name
-  // UserName
-  // Email
-  // Mobile
-  // Social Accounts ADD btn [LinkedIn, Twitter]
-
-  // SECOND PAGE
-  // Country - Dropdown? External API?
-  // Street
-  // Postcode
-  // City
-  // Remarks - Text editor
-
-  // THIRD PAGE
-  // Meetings
-  // Add new Meeting
-  // Edit Meeting
-  // CAN BE CARDS AS WELL!
 
   const [data, setData] = useState({
     1000054: "", //TYPE - REQUIRED
@@ -59,8 +29,10 @@ function ContactAdd(props) {
     ],
   });
   const [formPage, setFormPage] = useState(1);
+  const [meetings, setMeetings] = useState([]);
+  const navigate = useNavigate();
 
-  function handleSubmit(event) {
+  function handlePageFormSubmit(event) {
     event.preventDefault();
     const formElements = event.target; // Object
 
@@ -72,7 +44,6 @@ function ContactAdd(props) {
       if (Object.keys(data).includes(element.name)) {
         // TODO: check for the type bool, and set it to either personal or work
         if (element.name === "1000054") {
-          console.log("Checkbox is included");
           // Set the Data to be either Work or Personal based on the input.
           dataClone[element.name] =
             element.value === "on" ? "work" : "personal";
@@ -89,7 +60,33 @@ function ContactAdd(props) {
     setFormPage(formPage <= 2 ? formPage + 1 : 3);
   }
 
+  function createMeeting(event) {
+    console.log("new meeting, ", event.target);
+    const newMeeting = {
+      title: "",
+      location: "",
+      date: "",
+      time: "",
+    };
+    setMeetings([...meetings, newMeeting]);
+  }
+  function deleteMeeting(meeting) {
+    const cloneMeetings = [...meetings];
+    const newMeetings = cloneMeetings.filter((iteratedMeeting) => {
+      if (iteratedMeeting === meeting) {
+        console.log("same meetings");
+        // Dont return the obj we want to remove
+        return false;
+      }
+      console.log("differnt meetings");
+      return true;
+    });
+    setMeetings([...newMeetings]);
+  }
+
   function createContact() {
+    //TODO: Implement controlled form
+    //send POST to json server on form submit
     console.log("Final Push done");
   }
 
@@ -99,13 +96,13 @@ function ContactAdd(props) {
 
       {/* Render page 1 form or nothing */}
       {formPage === 1 ? (
-        <form className="first-page-form" onSubmit={handleSubmit}>
+        <form className="first-page-form" onSubmit={handlePageFormSubmit}>
           <section className="sec-name section-bar-input">
             <span className="material-symbols-outlined">badge</span>
             <input
               className="bar-input"
               id="name"
-              placeholder="Name"
+              placeholder="Name *"
               name="1000030"
               type="text"
               required
@@ -193,7 +190,7 @@ function ContactAdd(props) {
 
       {/* Render page 2 form or nothing */}
       {formPage === 2 ? (
-        <form className="second-page-form" onSubmit={handleSubmit}>
+        <form className="second-page-form" onSubmit={handlePageFormSubmit}>
           <section className="sec-country section-bar-input">
             <span className="material-symbols-outlined">public</span>
             <input
@@ -266,26 +263,65 @@ function ContactAdd(props) {
 
       {/* Render page 3 form or nothing */}
       {formPage === 3 ? (
-        <form className="third-page-form" onSubmit={handleSubmit}>
-          <section className="sec-name">
-            <label htmlFor="1000030">Contact Name:</label>
-            <input id="name" name="1000030" type="text" required />
-          </section>
+        <form className="third-page-form" onSubmit={handlePageFormSubmit}>
+          <h2>Meetings</h2>
 
-          <section className="sec-username">
-            <label htmlFor="1000049">Username:</label>
-            <input id="username" name="1000049" type="text" />
-          </section>
+          <div className="contacts-list">
+            {meetings.map((meeting, index) => {
+              return (
+                <div className="contact-card noselect" key={index}>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Meeting Name"
+                    required
+                  />
 
-          <section className="sec-email">
-            <label htmlFor="1000048">Email:</label>
-            <input id="email" name="1000048" type="email" />
-          </section>
+                  <label htmlFor="location">Location:</label>
+                  <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Location"
+                  ></input>
 
-          <section className="sec-mobile">
-            <label htmlFor="1000033">Mobile:</label>
-            <input id="mobile" name="1000033" type="tel" />
-          </section>
+                  <label htmlFor="date">Date:</label>
+                  <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    placeholder="dd-MM-yyyy"
+                    defaultValue="2022-02-02"
+                  />
+
+                  <label htmlFor="time">Time:</label>
+                  <input
+                    placeholder="hh:mm"
+                    defaultValue="13:00"
+                    id="time"
+                    name="time"
+                    type="time"
+                    required
+                  />
+
+                  <div
+                    className="edit-btn"
+                    onClick={() => deleteMeeting(meeting)}
+                  >
+                    <span className="material-symbols-outlined">delete</span>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Add Meeting Card */}
+            <div className="contact-card-add noselect" onClick={createMeeting}>
+              <div className="inner">
+                <h2>+</h2>
+              </div>
+            </div>
+          </div>
 
           <section className="sec-actions">
             <button
