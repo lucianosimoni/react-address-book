@@ -9,8 +9,8 @@
   grid-template:
     "name username" auto
     "email mobile" auto
-    "social type" auto
-    "action action" auto /
+    "linkedin type" auto
+    "twitter action" auto /
     1fr 1fr;
 }
 .second-page-form {
@@ -91,11 +91,6 @@ section > span {
 /* First Page */
 .sec-name {
   grid-area: name;
-
-  transition: ease scale 0.2s;
-}
-.sec-name:hover {
-  scale: 1.05;
 }
 .sec-username {
   grid-area: username;
@@ -106,24 +101,80 @@ section > span {
 .sec-mobile {
   grid-area: mobile;
 }
-.sec-social {
-  grid-area: social;
-
-  margin: 1rem 1rem 0 0;
+.sec-linkedin {
+  grid-area: linkedin;
+}
+.sec-twitter {
+  grid-area: twitter;
 }
 .sec-type {
   grid-area: type;
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  align-items: center;
+  justify-content: center;
 
   margin: 1rem 0 0 1rem;
 }
 .sec-type p {
-  grid-column: 1 / span 2;
   margin: 0;
+  color: #787878;
 }
-.sec-type > label {
-  margin-left: 1rem;
+
+/* SWITCH BUTTON */
+.switch {
+  position: relative;
+  display: flex;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  /* Hide the White Box */
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  /* OFF */
+  position: absolute;
+  cursor: pointer;
+
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* width: 100%; */
+  background-color: #ccc;
+
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  border-radius: 50%;
+  bottom: 4px;
+  background-color: white;
+
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+input[type="checkbox"]:checked + .slider {
+  background-color: #1bb490;
+}
+input[type="checkbox"]:focus + .slider {
+  box-shadow: 0 0 1px #1bb490;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
 
 /* Second Page */

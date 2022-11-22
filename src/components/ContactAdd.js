@@ -68,9 +68,12 @@ function ContactAdd(props) {
     const dataClone = { ...data };
 
     for (const element of formElements) {
-      const elementName = element.name;
       // If the Array of Keys from data includes the element name
-      if (Object.keys(data).includes(elementName)) {
+      if (Object.keys(data).includes(element.name)) {
+        // TODO: check for the type bool, and set it to either personal or work
+        console.log("Data includes checkbox!!!");
+        console.log("checkbox value: ", element.value);
+
         // Update key value
         dataClone[element.name] = element.value;
       }
@@ -93,7 +96,7 @@ function ContactAdd(props) {
       {formPage === 1 ? (
         <form className="first-page-form" onSubmit={handleSubmit}>
           <section className="sec-name bar-input">
-            <span class="material-symbols-outlined">badge</span>
+            <span className="material-symbols-outlined">badge</span>
             <input
               id="name"
               placeholder="Name"
@@ -104,7 +107,7 @@ function ContactAdd(props) {
           </section>
 
           <section className="sec-username bar-input">
-            <span class="material-symbols-outlined">person</span>
+            <span className="material-symbols-outlined">person</span>
             <input
               id="username"
               placeholder="Username"
@@ -114,7 +117,7 @@ function ContactAdd(props) {
           </section>
 
           <section className="sec-email bar-input">
-            <span class="material-symbols-outlined">alternate_email</span>
+            <span className="material-symbols-outlined">alternate_email</span>
             <input
               id="email"
               placeholder="E-mail"
@@ -124,25 +127,36 @@ function ContactAdd(props) {
           </section>
 
           <section className="sec-mobile bar-input">
-            <span class="material-symbols-outlined">smartphone</span>
+            <span className="material-symbols-outlined">smartphone</span>
             <input id="mobile" placeholder="Mobile" name="1000033" type="tel" />
           </section>
 
-          <section className="sec-social">
-            <p>Should be a optional section that opens something</p>
+          <section className="sec-linkedin bar-input">
+            <span className="material-symbols-outlined">groups</span>
+            <input
+              id="linkedin"
+              placeholder="LinkedIn"
+              name="1000034"
+              type="text"
+            />
+          </section>
+
+          <section className="sec-twitter bar-input">
+            <span className="material-symbols-outlined">groups</span>
+            <input
+              id="twitter"
+              placeholder="Twitter"
+              name="1000035"
+              type="text"
+            />
           </section>
 
           <section className="sec-type">
-            <p>Type of Contact:</p>
-            <input
-              id="personal"
-              name="1000054"
-              type="radio"
-              value={"personal"}
-            />
-            <label htmlFor="personal">Personal</label>
-            <input id="work" name="1000054" type="radio" value={"work"} />
-            <label htmlFor="work">Work</label>
+            <p>Work Contact:</p>
+            <label className="switch" id="switch">
+              <input type="checkbox" name="1000054" />
+              <span className="slider"></span>
+            </label>
           </section>
 
           <section className="sec-actions">
