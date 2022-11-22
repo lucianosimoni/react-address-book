@@ -20,7 +20,7 @@ export default function App() {
     fetch(apiURL)
       .then((res) => res.json())
       .then((data) => {
-        for (var key in data) {
+        for (const key in data) {
           const keyValue = data[key];
           newContacts.push(keyValue);
         }

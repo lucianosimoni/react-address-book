@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ConstactCard({ name, username, email, type, id }) {
+function ContactCard({ name, username, email, type, id }) {
   // Update BG color of h3 based on the person type
   const bgColor = type === "personal" ? "#cbcbcb" : "#add6ce";
   return (
@@ -21,4 +21,4 @@ function ConstactCard({ name, username, email, type, id }) {
   );
 }
 
-export default ConstactCard;
+export default ContactCard;

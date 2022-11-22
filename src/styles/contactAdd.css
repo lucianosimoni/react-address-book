@@ -1,0 +1,130 @@
+.first-page-form {
+  display: grid;
+  grid-template:
+    "name username" auto
+    "email mobile" auto
+    "social type" auto
+    "action action" auto /
+    1fr 1fr;
+}
+.second-page-form {
+  display: grid;
+  grid-template:
+    "country city" auto
+    "street postcode" auto
+    "remarks remarks"
+    "action action" auto /
+    1fr 1fr;
+}
+.third-page-form {
+  display: grid;
+  grid-template:
+    "name username" auto
+    "email mobile" auto
+    "social action" auto /
+    1fr 1fr;
+}
+
+/* PAGE HEADER */
+.contact-add-header {
+  text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  height: 45px;
+
+  padding: 0 1rem 0 3rem;
+
+  /* Ellipsis overflow */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  border: 0;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 10px 10px 20px #cacaca, -10px -10px 20px #f6f6f6;
+}
+
+section {
+  padding: 1rem;
+  position: relative;
+}
+
+/* Icons */
+section > span {
+  color: #b3b3b3;
+
+  position: absolute;
+  top: 1.7rem;
+  left: 2rem;
+}
+
+/* First Page */
+.sec-name {
+  grid-area: name;
+}
+
+.sec-username {
+  grid-area: username;
+}
+
+.sec-email {
+  grid-area: email;
+}
+
+.sec-mobile {
+  grid-area: mobile;
+}
+
+.sec-social {
+  grid-area: social;
+}
+
+/* FIRST - TYPE */
+.sec-type {
+  grid-area: type;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+.sec-type p {
+  grid-column: 1 / span 2;
+  margin: 0;
+}
+.sec-type > label {
+  margin-left: 1rem;
+}
+
+/* Second Page */
+.sec-country {
+  grid-area: country;
+}
+
+.sec-city {
+  grid-area: city;
+}
+
+.sec-street {
+  grid-area: street;
+}
+
+.sec-postcode {
+  grid-area: postcode;
+}
+
+.sec-remarks {
+  grid-area: remarks;
+}
+
+/* All Pages */
+.sec-actions {
+  grid-area: action;
+
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: right;
+  gap: 0.5rem;
+}

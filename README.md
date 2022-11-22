@@ -1,5 +1,7 @@
 Using [React Head](https://github.com/nfl/react-helmet)
 
+The form of the Add contact uses conditional rendering to render multiple pages as the contact is created.
+
 # React Address Book
 
 ![React Address Book](./images/address-book.gif)

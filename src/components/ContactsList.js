@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import ConstactCard from "./ContactCard";
+import ContactCard from "./ContactCard";
 
 function ContactsList(props) {
   //"contacts" must be passed as prop to this component
@@ -13,7 +13,7 @@ function ContactsList(props) {
       <div className="contacts-list">
         {contacts.map((person, index) => {
           return (
-            <ConstactCard
+            <ContactCard
               key={index}
               name={person.name}
               username={person.username}

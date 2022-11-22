@@ -220,7 +220,6 @@ select {
   justify-content: center;
   padding: 1rem;
 
-  /* height: 100%; */
   width: 100%;
 
   border-radius: 50px;
@@ -249,41 +248,6 @@ select {
 
 .view-section {
   padding: 2rem 0;
-}
-
-.form-stack > * + * {
-  margin-top: 0.5rem;
-}
-
-.form-stack > label {
-  display: block;
-}
-
-.form-stack > input {
-  width: 100%;
-}
-
-.contact-form {
-  max-width: 400px;
-}
-
-.contact-form h1 {
-  margin-bottom: 1rem;
-}
-
-.contact-form label {
-  font-weight: bold;
-}
-
-.contact-form .checkbox-section {
-  padding: 0.25rem 0;
-}
-
-.contact-form .actions-section {
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: right;
-  gap: 0.5rem;
 }
 
 .address-card h2 {
