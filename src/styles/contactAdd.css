@@ -1,3 +1,9 @@
+.add-contact-wrapper {
+  height: 100%;
+
+  padding: 2rem;
+}
+
 .first-page-form {
   display: grid;
   grid-template:
@@ -37,6 +43,7 @@ input[type="tel"] {
   height: 45px;
 
   padding: 0 1rem 0 3rem;
+  outline: none;
 
   /* Ellipsis overflow */
   text-overflow: ellipsis;
@@ -49,11 +56,6 @@ input[type="tel"] {
   box-shadow: 10px 10px 20px #cacaca, -10px -10px 20px #f6f6f6;
 }
 
-section {
-  padding: 1rem;
-  position: relative;
-}
-
 /* Icons */
 section > span {
   color: #b3b3b3;
@@ -63,32 +65,58 @@ section > span {
   left: 2rem;
 }
 
+/* SECTION ANIMATION OF SCALE AND SHADOW */
+.bar-input {
+  padding: 1rem;
+  position: relative;
+
+  transition: ease scale 0.2s;
+}
+.bar-input:hover {
+  scale: 1.05;
+}
+#name,
+#username,
+#email,
+#mobile {
+  transition: ease box-shadow 0.2s;
+}
+.bar-input:hover #username,
+.bar-input:hover #name,
+.bar-input:hover #email,
+.bar-input:hover #mobile {
+  box-shadow: 5px 5px 10px #cacaca, -5px -5px 10px #f6f6f6;
+}
+
 /* First Page */
 .sec-name {
   grid-area: name;
-}
 
+  transition: ease scale 0.2s;
+}
+.sec-name:hover {
+  scale: 1.05;
+}
 .sec-username {
   grid-area: username;
 }
-
 .sec-email {
   grid-area: email;
 }
-
 .sec-mobile {
   grid-area: mobile;
 }
-
 .sec-social {
   grid-area: social;
-}
 
-/* FIRST - TYPE */
+  margin: 1rem 1rem 0 0;
+}
 .sec-type {
   grid-area: type;
   display: grid;
   grid-template-columns: auto 1fr;
+
+  margin: 1rem 0 0 1rem;
 }
 .sec-type p {
   grid-column: 1 / span 2;
@@ -102,19 +130,15 @@ section > span {
 .sec-country {
   grid-area: country;
 }
-
 .sec-city {
   grid-area: city;
 }
-
 .sec-street {
   grid-area: street;
 }
-
 .sec-postcode {
   grid-area: postcode;
 }
-
 .sec-remarks {
   grid-area: remarks;
 }
@@ -126,5 +150,31 @@ section > span {
   display: grid;
   grid-auto-flow: column;
   justify-content: right;
-  gap: 0.5rem;
+
+  margin: 1rem 1rem 0 0;
+
+  gap: 1rem;
+}
+.cancel-btn,
+.continue-btn,
+.create-btn {
+  height: 50px;
+  width: 100px;
+
+  border: 0;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow: 10px 10px 20px #b3b3b3, -10px -10px 20px #ffffff;
+
+  transition: ease filter 0.1s;
+}
+.cancel-btn:hover,
+.continue-btn:hover,
+.create-btn:hover {
+  filter: brightness(92%);
+}
+.cancel-btn:active,
+.continue-btn:active,
+.create-btn:active {
+  filter: brightness(88%);
 }

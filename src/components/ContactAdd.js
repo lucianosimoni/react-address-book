@@ -86,13 +86,13 @@ function ContactAdd(props) {
   }
 
   return (
-    <div>
+    <div className="add-contact-wrapper">
       <h1 className="contact-add-header">Creating new Contact</h1>
 
       {/* Render page 1 form or nothing */}
       {formPage === 1 ? (
         <form className="first-page-form" onSubmit={handleSubmit}>
-          <section className="sec-name">
+          <section className="sec-name bar-input">
             <span class="material-symbols-outlined">badge</span>
             <input
               id="name"
@@ -103,7 +103,7 @@ function ContactAdd(props) {
             />
           </section>
 
-          <section className="sec-username">
+          <section className="sec-username bar-input">
             <span class="material-symbols-outlined">person</span>
             <input
               id="username"
@@ -113,7 +113,7 @@ function ContactAdd(props) {
             />
           </section>
 
-          <section className="sec-email">
+          <section className="sec-email bar-input">
             <span class="material-symbols-outlined">alternate_email</span>
             <input
               id="email"
@@ -123,7 +123,7 @@ function ContactAdd(props) {
             />
           </section>
 
-          <section className="sec-mobile">
+          <section className="sec-mobile bar-input">
             <span class="material-symbols-outlined">smartphone</span>
             <input id="mobile" placeholder="Mobile" name="1000033" type="tel" />
           </section>
@@ -147,13 +147,16 @@ function ContactAdd(props) {
 
           <section className="sec-actions">
             <button
+              className="cancel-btn"
               onClick={() => {
                 navigate("/contacts/");
               }}
             >
               Cancel
             </button>
-            <button type="submit">Continue</button>
+            <button className="continue-btn" type="submit">
+              Continue
+            </button>
           </section>
         </form>
       ) : null}
@@ -188,13 +191,16 @@ function ContactAdd(props) {
 
           <section className="sec-actions">
             <button
+              className="cancel-btn"
               onClick={() => {
                 navigate("/contacts/");
               }}
             >
               Cancel
             </button>
-            <button type="submit">Continue</button>
+            <button className="continue-btn" type="submit">
+              Continue
+            </button>
           </section>
         </form>
       ) : null}
@@ -224,13 +230,16 @@ function ContactAdd(props) {
 
           <section className="sec-actions">
             <button
+              className="cancel-btn"
               onClick={() => {
                 navigate("/contacts/");
               }}
             >
               Cancel
             </button>
-            <button type="submit">Next Page</button>
+            <button className="create-btn" type="submit">
+              Create
+            </button>
           </section>
         </form>
       ) : null}

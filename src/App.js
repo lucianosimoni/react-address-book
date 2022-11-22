@@ -36,9 +36,13 @@ export default function App() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
+        <link
+          href="https://fonts.googleapis.com/css?family=Nunito Sans"
+          rel="stylesheet"
+        />
       </Helmet>
       <nav>
-        <h2>Menu</h2>
+        <h2>Typography</h2>
         <ul>
           <li>
             <Link to={"/contacts/"}>Contacts List</Link>
