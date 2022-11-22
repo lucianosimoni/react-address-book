@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/contactAdd.css";
 
-function ContactAdd(props) {
-  const { setContacts, contacts } = props;
-
+function ContactAdd({ fetchContacts }) {
   const [data, setData] = useState({
     1000054: "", //TYPE - REQUIRED
     1000030: "", //NAME - REQUIRED
@@ -41,6 +39,32 @@ function ContactAdd(props) {
     event.preventDefault();
     const formElements = event.target; // Object
 
+    // The Create btn in the third page has been pressed
+    // POST it using fetch into the API
+    if (formPage === 3) {
+      const apiURL =
+        "https://eu3.ragic.com/lauec/address-book/2?api&APIKey=TVVHL3ZFUTB5TlB2WlF5dUR4WnorSkNoUjJKb1BwcFlWTFA4ekpJZFc0anB0aEpFVlJFaFRRaWpIQ0FqWXZEeHUyYjgzSEdVSTk5dkY2SzJVWTRQbUE9PQ%3D%3D";
+
+      fetch(apiURL, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((resData) => {
+          console.log("Sucess:", resData);
+          navigate("/contacts/");
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          navigate("/contacts/");
+        });
+      return;
+    }
+
     // Copy to access using [] inside the loops
     const dataClone = { ...data };
 
@@ -61,8 +85,8 @@ function ContactAdd(props) {
     }
 
     setData({ ...dataClone });
-    // Dont go over page 3
-    setFormPage(formPage <= 2 ? formPage + 1 : 3);
+    // Can only go till 2, cause return will not let it be read when on the 3
+    setFormPage(formPage + 1);
   }
 
   function createMeeting() {
@@ -360,7 +384,7 @@ function ContactAdd(props) {
               Cancel
             </button>
             <button className="create-btn" type="submit">
-              Done
+              Create
             </button>
           </section>
         </form>

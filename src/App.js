@@ -59,7 +59,10 @@ export default function App() {
             }
           />
           <Route path="/contacts/:id" element={<ContactView />} />
-          <Route path="/contacts/add/" element={<ContactAdd />} />
+          <Route
+            path="/contacts/add/"
+            element={<ContactAdd fetchContacts={fetchContacts} />}
+          />
           <Route path="/contacts/edit/:id" element={<ContactEdit />} />
         </Routes>
       </main>
