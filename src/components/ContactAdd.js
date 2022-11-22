@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/contactAdd.css";
 
@@ -20,17 +20,22 @@ function ContactAdd(props) {
     1000046: "", //REMARKS
     1000050: [
       //MEETINGS
-      {
-        title: "Meeting 1",
-        location: "London",
-        date: "02/12/2022",
-        time: "20pm",
-      },
+      // {
+      //   title: "Meeting 1",
+      //   location: "London",
+      //   date: "02/12/2022",
+      //   time: "20pm",
+      // }
     ],
   });
   const [formPage, setFormPage] = useState(1);
-  const [meetings, setMeetings] = useState([]);
+  const [meetings, setMeetings] = useState([]); //Meetings is always updated, and then sent to Data
   const navigate = useNavigate();
+
+  // Called every time the meetings Update. It updates the Data State
+  useEffect(() => {
+    setData({ ...data, 1000050: [...meetings] });
+  }, [meetings]);
 
   function handlePageFormSubmit(event) {
     event.preventDefault();
@@ -60,25 +65,24 @@ function ContactAdd(props) {
     setFormPage(formPage <= 2 ? formPage + 1 : 3);
   }
 
-  function createMeeting(event) {
-    console.log("new meeting, ", event.target);
+  function createMeeting() {
     const newMeeting = {
       title: "",
       location: "",
       date: "",
       time: "",
     };
+
     setMeetings([...meetings, newMeeting]);
   }
+
   function deleteMeeting(meeting) {
     const cloneMeetings = [...meetings];
     const newMeetings = cloneMeetings.filter((iteratedMeeting) => {
       if (iteratedMeeting === meeting) {
-        console.log("same meetings");
         // Dont return the obj we want to remove
         return false;
       }
-      console.log("differnt meetings");
       return true;
     });
     setMeetings([...newMeetings]);
@@ -266,6 +270,7 @@ function ContactAdd(props) {
         <form className="third-page-form" onSubmit={handlePageFormSubmit}>
           <h2>Meetings</h2>
 
+          {/* Meeting Cards */}
           <div className="contacts-list">
             {meetings.map((meeting, index) => {
               return (
@@ -274,11 +279,17 @@ function ContactAdd(props) {
                     type="text"
                     id="title"
                     name="title"
-                    placeholder="Meeting Name"
+                    placeholder="Meeting Name *"
+                    onChange={(event) => {
+                      const meetingsArray = [...meetings];
+                      meetingsArray[index].title = event.target.value;
+
+                      setMeetings([...meetingsArray]);
+                    }}
                     required
                   />
 
-                  <label htmlFor="location">Location:</label>
+                  <label htmlFor="location">Location: *</label>
                   <input
                     type="text"
                     id="location"
@@ -286,7 +297,7 @@ function ContactAdd(props) {
                     placeholder="Location"
                   ></input>
 
-                  <label htmlFor="date">Date:</label>
+                  <label htmlFor="date">Date: *</label>
                   <input
                     type="date"
                     id="date"
@@ -295,7 +306,7 @@ function ContactAdd(props) {
                     defaultValue="2022-02-02"
                   />
 
-                  <label htmlFor="time">Time:</label>
+                  <label htmlFor="time">Time: *</label>
                   <input
                     placeholder="hh:mm"
                     defaultValue="13:00"
@@ -333,7 +344,7 @@ function ContactAdd(props) {
               Cancel
             </button>
             <button className="create-btn" type="submit">
-              Create
+              Done
             </button>
           </section>
         </form>

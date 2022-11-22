@@ -195,6 +195,9 @@ select {
   -webkit-appearance: none;
   box-shadow: inset 20px 20px 40px #bebebe, inset -20px -20px 40px #ffffff;
 }
+.contact-card #title {
+  line-height: 40px;
+}
 
 /* ADD CARD */
 .contact-card-add {
