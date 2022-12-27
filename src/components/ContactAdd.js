@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/contactAdd.css";
 
-function ContactAdd({ fetchContacts }) {
+function ContactAdd() {
   const [data, setData] = useState({
     1000054: "", //TYPE - REQUIRED
     1000030: "", //NAME - REQUIRED
