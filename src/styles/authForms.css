@@ -1,0 +1,19 @@
+.authForms-main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+}
+
+/* Labels in Form */
+.authForms-main form label {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+
+/* Submit button */
+.authForms-main form button {
+  cursor: pointer;
+  width: 100%;
+}

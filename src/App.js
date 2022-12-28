@@ -7,6 +7,8 @@ import ContactEdit from "./components/ContactEdit";
 import ContactView from "./components/ContactView";
 import TestPage from "./components/TestPage";
 import "./styles/styles.css";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
@@ -27,30 +29,18 @@ export default function App() {
         </Helmet>
       </HelmetProvider>
 
-      <nav>
-        <h2>Typography</h2>
-        <ul>
-          <li>
-            <Link to={"/contacts/"}>Contacts List</Link>
-          </li>
-          <li>
-            <Link to={"/testpage/"}>Test Page</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <main>
-        <Routes>
-          <Route
-            path="/contacts/"
-            element={<ContactsList contacts={contacts} />}
-          />
-          <Route path="/contacts/:id" element={<ContactView />} />
-          <Route path="/contacts/add/" element={<ContactAdd />} />
-          <Route path="/contacts/edit/:id" element={<ContactEdit />} />
-          <Route path="/testpage/" element={<TestPage />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route
+          path="/contacts/"
+          element={<ContactsList contacts={contacts} />}
+        />
+        <Route path="/contacts/:id" element={<ContactView />} />
+        <Route path="/contacts/add" element={<ContactAdd />} />
+        <Route path="/contacts/edit/:id" element={<ContactEdit />} />
+        <Route path="/testpage" element={<TestPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </>
   );
 }

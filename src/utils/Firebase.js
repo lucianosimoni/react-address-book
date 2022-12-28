@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, onValue, push, ref } from "firebase/database";
+import { getAuth } from "firebase/auth";
+import { useEffect } from "react";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAQW9fPvYaNJX2Vgn-Zz1IZTzPywGfUPnE",
@@ -13,42 +15,7 @@ const firebaseConfig = {
     "https://react-address-book-c5c88-default-rtdb.europe-west1.firebasedatabase.app/",
 };
 
-// Initialize Firebase
+// Firebase Variables
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-
-function writeNewContact(
-  userID,
-  name,
-  username,
-  email,
-  mobile,
-  linkedin,
-  twitter,
-  workContact = false,
-  country,
-  city,
-  street,
-  postcode,
-  remarks,
-  meetings = []
-) {
-  const db = database();
-  set(ref(db, "user/" + userID + "/contacts/"), {
-    name,
-    username,
-    email,
-    mobile,
-    linkedin,
-    twitter,
-    workContact,
-    country,
-    city,
-    street,
-    postcode,
-    remarks,
-    meetings,
-  });
-}
-
-export default database;
+export const database = getDatabase(app);
+export const auth = getAuth(app);

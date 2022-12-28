@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import NavigationRail from "./NavigationRail";
 
 function ContactView() {
   const [contact, setContact] = useState(false);
@@ -13,14 +14,20 @@ function ContactView() {
   }
 
   return (
-    <div>
-      <h2>
-        {contact.firstName} {contact.lastName}
-      </h2>
-      <p>
-        {contact.street} {contact.city}
-      </p>
-    </div>
+    <>
+      <NavigationRail />
+
+      <main>
+        <div>
+          <h2>
+            {contact.firstName} {contact.lastName}
+          </h2>
+          <p>
+            {contact.street} {contact.city}
+          </p>
+        </div>
+      </main>
+    </>
   );
 }
 
