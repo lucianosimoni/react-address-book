@@ -290,7 +290,7 @@ select {
 .profile-button img {
   position: absolute;
   border-radius: 50%;
-  transition: ease filter 0.1s;
+  transition: ease filter 0.2s;
 }
 .profile-button span {
   display: flex;

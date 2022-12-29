@@ -35,10 +35,13 @@ export default function App() {
         <Route element={<AuthenticateUser loggedInUser={loggedInUser} />}>
           <Route
             path="/contacts/"
-            element={<ContactsList contacts={contacts} />}
+            element={<ContactsList loggedInUser={loggedInUser} />}
           />
           <Route path="/contacts/:id" element={<ContactView />} />
-          <Route path="/contacts/add" element={<ContactAdd />} />
+          <Route
+            path="/contacts/add"
+            element={<ContactAdd loggedInUser={loggedInUser} />}
+          />
           <Route path="/contacts/edit/:id" element={<ContactEdit />} />
           <Route
             path="/testpage"

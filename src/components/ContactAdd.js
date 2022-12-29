@@ -1,92 +1,70 @@
+import { push, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/contactAdd.css";
+import { database } from "../utils/Firebase";
 import NavigationRail from "./NavigationRail";
 
-function ContactAdd() {
+function ContactAdd({ loggedInUser }) {
   const [data, setData] = useState({
-    1000054: "", //TYPE - REQUIRED
-    1000030: "", //NAME - REQUIRED
-    1000049: "", //USERNAME
-    1000048: "", //EMAIL
-    1000033: "", //MOBILE
-    1000034: "", //SOCIAL LINKEDIN
-    1000035: "", //SOCIAL TWITTER
-    1000036: "", //COUNTRY
-    1000047: "", //CITY
-    1000044: "", //STREET
-    1000045: "", //POSTCODE
-    1000046: "", //REMARKS
-    1000050: [
-      //MEETINGS
-      // {
-      //   title: "Meeting 1",
-      //   location: "London",
-      //   date: "02/12/2022",
-      //   time: "20pm",
-      // }
-    ],
+    // type: "", //TYPE - REQUIRED
+    // name: "", //NAME - REQUIRED
+    // username: "", //USERNAME
+    // email: "", //EMAIL
+    // mobile: "", //MOBILE
+    // linkedin: "", //SOCIAL LINKEDIN
+    // twitter: "", //SOCIAL TWITTER
+    // country: "", //COUNTRY
+    // city: "", //CITY
+    // street: "", //STREET
+    // postcode: "", //POSTCODE
+    // remarks: "", //REMARKS
+    // meetings: [
+    //MEETINGS
+    // {
+    //   title: "Meeting 1",
+    //   location: "London",
+    //   date: "02/12/2022",
+    //   time: "20pm",
+    // }
+    // ],
   });
   const [formPage, setFormPage] = useState(1);
   const [meetings, setMeetings] = useState([]); //Meetings is always updated, and then sent to Data
+
   const navigate = useNavigate();
+  const contactsRef = ref(database, `/users/${loggedInUser.uid}/contacts/`);
 
   // Called every time the meetings Update. It updates the Data State
   useEffect(() => {
-    setData({ ...data, 1000050: [...meetings] });
+    setData({ ...data, meetings: [...meetings] });
   }, [meetings]);
 
   function handlePageFormSubmit(event) {
     event.preventDefault();
     const formElements = event.target; // Object
 
-    // The Create btn in the third page has been pressed
-    // POST it using fetch into the API
     if (formPage === 3) {
-      const apiURL =
-        "https://eu3.ragic.com/lauec/address-book/2?api&APIKey=TVVHL3ZFUTB5TlB2WlF5dUR4WnorSkNoUjJKb1BwcFlWTFA4ekpJZFc0anB0aEpFVlJFaFRRaWpIQ0FqWXZEeHUyYjgzSEdVSTk5dkY2SzJVWTRQbUE9PQ%3D%3D";
-
-      fetch(apiURL, {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((resData) => {
-          console.log("Sucess:", resData);
-          navigate("/contacts/");
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          navigate("/contacts/");
-        });
+      // Push to the DB
+      push(contactsRef, data);
+      navigate("/contacts");
       return;
     }
 
-    // Copy to access using [] inside the loops
     const dataClone = { ...data };
-
     for (const element of formElements) {
-      // If the Array of Keys from data includes the element name
-      if (Object.keys(data).includes(element.name)) {
-        // TODO: check for the type bool, and set it to either personal or work
-        if (element.name === "1000054") {
-          // Set the Data to be either Work or Personal based on the input.
-          dataClone[element.name] =
-            element.value === "on" ? "work" : "personal";
-          continue; // Continue loop. Return here would stop the loop.
-        }
+      if (element.id === "") continue;
 
-        // Update key value
-        dataClone[element.name] = element.value;
+      console.log(element.id);
+      if (element.id === "type") {
+        dataClone[element.id] = element.checked ? "work" : "personal";
+        continue;
       }
+      // Update key value
+      dataClone[element.id] = element.value;
     }
 
     setData({ ...dataClone });
-    // Can only go till 2, cause return will not let it be read when on the 3
     setFormPage(formPage + 1);
   }
 
@@ -113,12 +91,6 @@ function ContactAdd() {
     setMeetings([...newMeetings]);
   }
 
-  function createContact() {
-    //TODO: Implement controlled form
-    //send POST to json server on form submit
-    console.log("Final Push done");
-  }
-
   return (
     <>
       <NavigationRail />
@@ -136,7 +108,6 @@ function ContactAdd() {
                   className="bar-input"
                   id="name"
                   placeholder="Name *"
-                  name="1000030"
                   type="text"
                   required
                 />
@@ -148,7 +119,6 @@ function ContactAdd() {
                   className="bar-input"
                   id="username"
                   placeholder="Username"
-                  name="1000049"
                   type="text"
                 />
               </section>
@@ -161,7 +131,6 @@ function ContactAdd() {
                   className="bar-input"
                   id="email"
                   placeholder="E-mail"
-                  name="1000048"
                   type="email"
                 />
               </section>
@@ -172,7 +141,6 @@ function ContactAdd() {
                   className="bar-input"
                   id="mobile"
                   placeholder="Mobile"
-                  name="1000033"
                   type="tel"
                 />
               </section>
@@ -183,7 +151,6 @@ function ContactAdd() {
                   className="bar-input"
                   id="linkedin"
                   placeholder="LinkedIn"
-                  name="1000034"
                   type="text"
                 />
               </section>
@@ -194,7 +161,6 @@ function ContactAdd() {
                   className="bar-input"
                   id="twitter"
                   placeholder="Twitter"
-                  name="1000035"
                   type="text"
                 />
               </section>
@@ -202,7 +168,12 @@ function ContactAdd() {
               <section className="sec-type">
                 <p>Work Contact:</p>
                 <label className="switch" id="switch">
-                  <input className="bar-input" type="checkbox" name="1000054" />
+                  <input
+                    id="type"
+                    className="bar-input"
+                    type="checkbox"
+                    name="1000054"
+                  />
                   <span className="slider"></span>
                 </label>
               </section>
@@ -232,7 +203,6 @@ function ContactAdd() {
                   className="bar-input"
                   placeholder="Country"
                   id="country"
-                  name="1000036"
                   type="text"
                 />
               </section>
@@ -243,7 +213,6 @@ function ContactAdd() {
                   className="bar-input"
                   placeholder="City"
                   id="city"
-                  name="1000047"
                   type="text"
                 />
               </section>
@@ -254,7 +223,6 @@ function ContactAdd() {
                   className="bar-input"
                   placeholder="Street"
                   id="street"
-                  name="1000044"
                   type="text"
                 />
               </section>
@@ -265,19 +233,13 @@ function ContactAdd() {
                   className="bar-input"
                   placeholder="Postcode"
                   id="postcode"
-                  name="1000045"
                   type="text"
                 />
               </section>
 
               <section className="sec-remarks section-bar-input">
-                <label htmlFor="1000046">Remarks:</label>
-                <input
-                  className="bar-input"
-                  id="remarks"
-                  name="1000046"
-                  type="text"
-                />
+                <label htmlFor="remarks">Remarks:</label>
+                <input className="bar-input" id="remarks" type="text" />
               </section>
 
               <section className="sec-actions">
@@ -323,7 +285,7 @@ function ContactAdd() {
                       <input
                         type="text"
                         id="location"
-                        placeholder="Location"
+                        placeholder="ex: London"
                         onChange={(event) => {
                           const meetingsArray = [...meetings];
                           meetingsArray[index].location = event.target.value;
@@ -338,7 +300,7 @@ function ContactAdd() {
                         type="date"
                         id="date"
                         placeholder="dd-MM-yyyy"
-                        defaultValue="2022-02-02"
+                        // defaultValue="2022-02-02"
                         onChange={(event) => {
                           const meetingsArray = [...meetings];
                           meetingsArray[index].date = event.target.value;
@@ -353,7 +315,7 @@ function ContactAdd() {
                         placeholder="hh:mm"
                         id="time"
                         type="time"
-                        defaultValue="13:00"
+                        // defaultValue="13:00"
                         onChange={(event) => {
                           const meetingsArray = [...meetings];
                           meetingsArray[index].time = event.target.value;

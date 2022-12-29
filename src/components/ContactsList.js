@@ -1,8 +1,22 @@
+import { onValue, ref } from "firebase/database";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { database } from "../utils/Firebase";
 import ContactCard from "./ContactCard";
 import NavigationRail from "./NavigationRail";
 
-function ContactsList({ contacts }) {
+function ContactsList({ loggedInUser }) {
+  const [userData, setUserData] = useState({});
+  const userRef = ref(database, `/users/${loggedInUser.uid}`);
+
+  // Get User Data from Database
+  useEffect(() => {
+    onValue(userRef, (snapshop) => {
+      const data = snapshop.val();
+      setUserData(data);
+    });
+  }, []);
+
   return (
     <>
       <NavigationRail />
@@ -12,18 +26,20 @@ function ContactsList({ contacts }) {
           <h2>Contacts</h2>
         </header>
         <div className="contacts-list">
-          {contacts.map((person, index) => {
-            return (
-              <ContactCard
-                key={index}
-                name={person.name}
-                username={person.username}
-                email={person.email}
-                type={person.type}
-                id={person.id}
-              />
-            );
-          })}
+          {userData.contacts
+            ? Object.values(userData.contacts).map((contact, index) => {
+                console.log(Object.keys(userData.contacts));
+                return (
+                  <ContactCard
+                    key={index}
+                    name={contact.name}
+                    username={contact.username}
+                    email={contact.email}
+                    type={contact.type}
+                  />
+                );
+              })
+            : null}
 
           {/* ADD CONTACT CARD */}
           <Link className="link noselect" to={"/contacts/add/"}>

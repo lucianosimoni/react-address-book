@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ContactCard({ name, username, email, type, id }) {
+function ContactCard({ name, username, email, type }) {
   // Update BG color of h3 based on the person type
   const bgColor = type === "personal" ? "#cbcbcb" : "#add6ce";
   return (
@@ -12,7 +12,7 @@ function ContactCard({ name, username, email, type, id }) {
       <p>{username}</p>
       <button className="view-btn">View</button>
 
-      <Link to={`/contacts/edit/${id}`}>
+      <Link to={`/contacts/edit/${name}`}>
         <div className="edit-btn">
           <span className="material-symbols-outlined">edit</span>
         </div>
