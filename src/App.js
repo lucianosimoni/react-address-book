@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import ContactsList from "./components/ContactsList";
 import ContactAdd from "./components/ContactAdd";
@@ -12,7 +19,9 @@ import Register from "./components/Register";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
+  const [loggedInUser, setLoggedInUser] = useState();
 
+  const navigate = useNavigate();
   return (
     <>
       <HelmetProvider>
@@ -30,17 +39,37 @@ export default function App() {
       </HelmetProvider>
 
       <Routes>
+        <Route element={<AuthenticateUser loggedInUser={loggedInUser} />}>
+          <Route
+            path="/contacts/"
+            element={<ContactsList contacts={contacts} />}
+          />
+          <Route path="/contacts/:id" element={<ContactView />} />
+          <Route path="/contacts/add" element={<ContactAdd />} />
+          <Route path="/contacts/edit/:id" element={<ContactEdit />} />
+          <Route
+            path="/testpage"
+            element={<TestPage loggedInUser={loggedInUser} />}
+          />
+        </Route>
+
         <Route
-          path="/contacts/"
-          element={<ContactsList contacts={contacts} />}
+          path="/login"
+          element={<Login setLoggedInUser={setLoggedInUser} />}
         />
-        <Route path="/contacts/:id" element={<ContactView />} />
-        <Route path="/contacts/add" element={<ContactAdd />} />
-        <Route path="/contacts/edit/:id" element={<ContactEdit />} />
-        <Route path="/testpage" element={<TestPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/register"
+          element={<Register setLoggedInUser={setLoggedInUser} />}
+        />
       </Routes>
     </>
   );
 }
+
+const AuthenticateUser = ({ loggedInUser, redirectPath = "/login" }) => {
+  if (!loggedInUser) {
+    return <Navigate to={redirectPath} replace />;
+  }
+
+  return <Outlet />;
+};

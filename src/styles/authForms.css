@@ -17,3 +17,30 @@
   cursor: pointer;
   width: 100%;
 }
+
+/* Error popup */
+.auth-error-div {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  bottom: 0;
+
+  padding: 0 1rem;
+  margin: 1rem;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  border-top: 20px solid tomato;
+  border-radius: 1rem;
+}
+.auth-error-div h1 {
+  margin: 0;
+}
+.auth-error-div button {
+  cursor: pointer;
+  background-color: turquoise;
+  border-radius: 1rem;
+  border: 0;
+  margin: 1rem 0;
+}

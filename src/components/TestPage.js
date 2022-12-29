@@ -3,11 +3,9 @@ import { database } from "../utils/Firebase";
 import NavigationRail from "./NavigationRail";
 import { useEffect, useState } from "react";
 
-const userId = 1;
-
-function TestPage() {
-  const userRef = ref(database, `/users/${userId}`);
-  const contactsRef = ref(database, `/users/${userId}/contacts/`);
+function TestPage({ loggedInUser }) {
+  const userRef = ref(database, `/users/${loggedInUser.uid}`);
+  const contactsRef = ref(database, `/users/${loggedInUser.uid}/contacts/`);
   const [data, setData] = useState({});
 
   // Get User Data from Database
