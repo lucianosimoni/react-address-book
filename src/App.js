@@ -1,27 +1,20 @@
-import { useEffect, useState } from "react";
-import {
-  Link,
-  Navigate,
-  Outlet,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { useState } from "react";
+import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import ContactsList from "./components/ContactsList";
 import ContactAdd from "./components/ContactAdd";
 import ContactEdit from "./components/ContactEdit";
 import ContactView from "./components/ContactView";
 import TestPage from "./components/TestPage";
-import "./styles/styles.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import "./styles/styles.css";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
   const [loggedInUser, setLoggedInUser] = useState();
-
   const navigate = useNavigate();
+
   return (
     <>
       <HelmetProvider>
@@ -32,7 +25,7 @@ export default function App() {
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
           />
           <link
-            href="https://fonts.googleapis.com/css?family=Nunito Sans"
+            href="https://fonts.googleapis.com/css?family=Nunito%20Sans"
             rel="stylesheet"
           />
         </Helmet>
@@ -62,6 +55,29 @@ export default function App() {
           element={<Register setLoggedInUser={setLoggedInUser} />}
         />
       </Routes>
+
+      <div
+        className="profile-button"
+        onClick={
+          loggedInUser
+            ? () => {
+                setLoggedInUser(null);
+                navigate("/login");
+              }
+            : () => navigate("/login")
+        }
+      >
+        {loggedInUser ? (
+          <>
+            <img
+              src={`https://avatars.dicebear.com/api/initials/${loggedInUser.email}.svg`}
+            />
+            <span className="material-symbols-outlined">logout</span>
+          </>
+        ) : (
+          <span className="material-symbols-outlined">login</span>
+        )}
+      </div>
     </>
   );
 }
