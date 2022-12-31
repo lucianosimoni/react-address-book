@@ -11,9 +11,6 @@ function NavigationRail() {
         <li>
           <Link to={"/testpage"}>Test Page</Link>
         </li>
-        <li>
-          <Link to={"/login"}>Login</Link>
-        </li>
       </ul>
     </nav>
   );
