@@ -57,21 +57,31 @@ function Login({ setLoggedInUser }) {
       )}
 
       <main className="authForms-main">
-        <Link to="/contacts">Back</Link>
-
         <h1>Login</h1>
 
         <form onSubmit={handleLoginSubmit}>
-          <label>
+          <label className="section-bar-input">
             Email
-            <input type="email" placeholder="Email address" />
+            <input
+              className="bar-input"
+              type="email"
+              placeholder="Email address"
+            />
           </label>
-          <label>
+          <label className="section-bar-input">
             Password
-            <input type="password" placeholder="Password" />
+            <input
+              className="bar-input"
+              type="password"
+              placeholder="Password"
+            />
           </label>
 
-          <button type="submit">Login</button>
+          <section>
+            <button className="action-button" type="submit">
+              Login
+            </button>
+          </section>
         </form>
         <Link to="/register">No account? Create one here</Link>
       </main>

@@ -198,8 +198,7 @@ input:checked + .slider:before {
 
   gap: 1rem;
 }
-.cancel-btn,
-.continue-btn,
+.action-btn,
 .create-btn {
   height: 50px;
   width: 100px;
@@ -213,14 +212,12 @@ input:checked + .slider:before {
 
   transition: ease filter 0.1s;
 }
-.cancel-btn:hover,
-.continue-btn:hover,
+.action-btn:hover,
 .create-btn:hover {
   cursor: pointer;
   filter: brightness(92%);
 }
-.cancel-btn:active,
-.continue-btn:active,
+.action-btn:active,
 .create-btn:active {
   filter: brightness(88%);
 }

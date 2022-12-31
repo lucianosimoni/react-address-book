@@ -65,27 +65,45 @@ function Register({ setLoggedInUser }) {
       )}
 
       <main className="authForms-main">
-        <Link to="/contacts">Back</Link>
-
         <h1>Register</h1>
 
         <form className="register-form" onSubmit={handleRegisterSubmit}>
-          <label>
+          <label className="section-bar-input">
             Name
-            <input type="text" placeholder="ex: Jorge Potato" required />
+            <input
+              className="bar-input"
+              type="text"
+              placeholder="ex: Jorge Potato"
+              required
+            />
           </label>
-          <label>
+          <label className="section-bar-input">
             Email
-            <input type="email" placeholder="ex: jorge@email.com" required />
+            <input
+              className="bar-input"
+              type="email"
+              placeholder="ex: jorge@email.com"
+              required
+            />
           </label>
-          <label>
+          <label className="section-bar-input">
             Password
-            <input type="password" placeholder="Enter a password" required />
+            <input
+              className="bar-input"
+              type="password"
+              placeholder="Enter a password"
+              required
+            />
           </label>
 
-          <button type="submit" className="register-form-submit">
-            Register
-          </button>
+          <section>
+            <button
+              type="submit"
+              className="register-form-submit action-button"
+            >
+              Register
+            </button>
+          </section>
         </form>
         <Link to="/login">Already have an account? Click here</Link>
       </main>

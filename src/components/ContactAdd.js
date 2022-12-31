@@ -180,14 +180,14 @@ function ContactAdd({ loggedInUser }) {
 
               <section className="sec-actions">
                 <button
-                  className="cancel-btn"
+                  className="action-btn"
                   onClick={() => {
                     navigate("/contacts/");
                   }}
                 >
                   Cancel
                 </button>
-                <button className="continue-btn" type="submit">
+                <button className="action-btn" type="submit">
                   Continue
                 </button>
               </section>
