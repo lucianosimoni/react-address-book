@@ -68,7 +68,7 @@ function Register({ setLoggedInUser }) {
         <h1>Register</h1>
 
         <form className="register-form" onSubmit={handleRegisterSubmit}>
-          <label for="name">Name</label>
+          <label htmlFor="name">Name</label>
           <div className="section-bar-input">
             <input
               id="name"
@@ -78,7 +78,7 @@ function Register({ setLoggedInUser }) {
               required
             />
           </div>
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <div className="section-bar-input">
             <input
               id="email"
@@ -88,7 +88,7 @@ function Register({ setLoggedInUser }) {
               required
             />
           </div>
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <div className="section-bar-input">
             <input
               id="password"

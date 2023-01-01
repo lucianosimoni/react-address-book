@@ -11,7 +11,6 @@ import Register from "./components/Register";
 import "./styles/styles.css";
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
   const [loggedInUser, setLoggedInUser] = useState();
   const navigate = useNavigate();
 

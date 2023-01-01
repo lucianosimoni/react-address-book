@@ -60,7 +60,7 @@ function Login({ setLoggedInUser }) {
         <h1>Login</h1>
 
         <form onSubmit={handleLoginSubmit}>
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <div className="section-bar-input">
             <input
               id="email"
@@ -69,7 +69,7 @@ function Login({ setLoggedInUser }) {
               placeholder="Email address"
             />
           </div>
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <div className="section-bar-input">
             <input
               id="password"
