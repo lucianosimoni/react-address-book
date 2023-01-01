@@ -295,10 +295,10 @@ function ContactAdd({ loggedInUser, userData }) {
               <h2>Add meetings to that contact</h2>
 
               {/* Meeting Cards */}
-              <div className="contacts-list">
+              <div className="cards-list">
                 {meetings.map((meeting, index) => {
                   return (
-                    <div className="contact-card noselect" key={index}>
+                    <div className="card noselect" key={index}>
                       <input
                         type="text"
                         id="title"
@@ -369,10 +369,7 @@ function ContactAdd({ loggedInUser, userData }) {
                 })}
 
                 {/* Add Meeting Card */}
-                <div
-                  className="contact-card-add noselect"
-                  onClick={createMeeting}
-                >
+                <div className="card-add noselect" onClick={createMeeting}>
                   <div className="inner">
                     <h2>+</h2>
                   </div>

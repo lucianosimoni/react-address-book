@@ -25,7 +25,7 @@ function ContactsList({ loggedInUser, userData, setUserData }) {
           <h1>Contacts</h1>
         </header>
 
-        <div className="contacts-list">
+        <div className="cards-list">
           {userData
             ? Object.values(userData.contacts).map((contact, index) => {
                 return (
@@ -42,7 +42,7 @@ function ContactsList({ loggedInUser, userData, setUserData }) {
 
           {/* ADD CONTACT CARD */}
           <Link className="link noselect" to={"/contacts/add/"}>
-            <div className="contact-card-add noselect">
+            <div className="card-add noselect">
               <div className="inner">
                 <h2>+</h2>
               </div>

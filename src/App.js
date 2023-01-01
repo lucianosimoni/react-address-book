@@ -53,14 +53,24 @@ export default function App() {
           />
           <Route element={<HasUserData userData={userData} />}>
             {/* IF HAS USER DATA SAVED - Pass in the contacts before */}
-            <Route path="/contacts/:id" element={<ContactView />} />
             <Route
               path="/contacts/add"
               element={
                 <ContactAdd loggedInUser={loggedInUser} userData={userData} />
               }
             />
-            <Route path="/contacts/edit/:id" element={<ContactEdit />} />
+            <Route
+              path="/contacts/:name"
+              element={
+                <ContactView loggedInUser={loggedInUser} userData={userData} />
+              }
+            />
+            <Route
+              path="/contacts/edit/:name"
+              element={
+                <ContactEdit loggedInUser={loggedInUser} userData={userData} />
+              }
+            />
           </Route>
         </Route>
 
@@ -102,21 +112,11 @@ export default function App() {
 }
 
 const AuthenticateUser = ({ loggedInUser }) => {
-  if (!loggedInUser) {
-    return <Navigate to={"/login"} replace />;
-  }
-
+  if (!loggedInUser) return <Navigate to={"/login"} replace />;
   return <Outlet />;
 };
 
 const HasUserData = ({ userData }) => {
-  console.log(userData);
-  console.log("in the has user data checker");
-  if (!userData) {
-    console.log("no user data");
-    return <Navigate to={"/contacts"} replace />;
-  }
-  console.log("There is user data");
-
+  if (!userData) return <Navigate to={"/contacts"} replace />;
   return <Outlet />;
 };

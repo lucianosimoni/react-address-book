@@ -69,14 +69,14 @@ select {
 }
 
 /* WRAPPER CARD */
-.contacts-list {
+.cards-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
   gap: 2rem;
 }
 
 /* CARD */
-.contact-card {
+.card {
   display: flex;
   flex-flow: column;
 
@@ -91,13 +91,13 @@ select {
 
   transition: ease scale 0.2s;
 }
-.contact-card:hover {
+.card:hover {
   z-index: 1;
   scale: 1.05;
 }
 
 /* CARD - PERSON NAME */
-.contact-card h3 {
+.card h3 {
   text-align: center;
   color: #1b1b1b;
 
@@ -114,12 +114,12 @@ select {
 }
 
 /* CARD - LABELS */
-.contact-card span {
+.card span {
   color: #868686;
 }
 
 /* CARD - PERSON DETAILS */
-.contact-card p {
+.card p {
   color: #1b1b1b;
 
   margin: 0;
@@ -129,12 +129,12 @@ select {
   overflow: hidden;
   white-space: nowrap;
 }
-.contact-card p:last-of-type {
+.card p:last-of-type {
   margin-bottom: 1rem;
 }
 
 /* CARD - VIEW BUTTON */
-.contact-card .view-btn {
+.card .view-btn {
   margin-top: auto;
 
   height: 50px;
@@ -148,16 +148,16 @@ select {
 
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) filter 1s;
 }
-.contact-card .view-btn:hover {
+.card .view-btn:hover {
   filter: brightness(92%);
   cursor: pointer;
 }
-.contact-card .view-btn:active {
+.card .view-btn:active {
   filter: brightness(88%);
 }
 
 /* CARD - ACTION BUTTON */
-.contact-card .edit-btn {
+.card .edit-btn {
   display: flex;
   scale: 0;
 
@@ -177,16 +177,16 @@ select {
   box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
   transition: ease scale 0.2s, ease filter 0.1s;
 }
-.contact-card .edit-btn:active {
+.card .edit-btn:active {
   filter: brightness(92%);
 }
-.contact-card:hover .edit-btn {
+.card:hover .edit-btn {
   cursor: pointer;
   scale: 1;
 }
 
 /* CARD - INPUTS */
-.contact-card input {
+.card input {
   outline: none;
 
   padding: 0 1rem;
@@ -202,12 +202,12 @@ select {
   -webkit-appearance: none;
   box-shadow: inset 20px 20px 40px #bebebe, inset -20px -20px 40px #ffffff;
 }
-.contact-card #title {
+.card #title {
   line-height: 40px;
 }
 
 /* ADD CARD */
-.contact-card-add {
+.card-add {
   display: flex;
 
   color: #cbcbcb;
@@ -224,18 +224,18 @@ select {
   /* HOVER OFF, no delay*/
   transition: ease-in box-shadow 0.2s, ease filter 0.1s;
 }
-.contact-card-add:hover {
+.card-add:hover {
   cursor: pointer;
   box-shadow: 11px 11px 50px #bebebe, -11px -11px 50px #ffffff;
   /* HOVER ON, add delay */
   transition: ease-out box-shadow 0.2s 0.2s, ease filter 0.1s;
 }
-.contact-card-add:active {
+.card-add:active {
   filter: brightness(92%);
 }
 
 /* ADD CARD - INNER EFFECT DIV */
-.contact-card-add .inner {
+.card-add .inner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -250,7 +250,7 @@ select {
   /* HOVER OFF, add delay */
   transition: ease-out box-shadow 0.2s 0.2s;
 }
-.contact-card-add:hover .inner {
+.card-add:hover .inner {
   box-shadow: inset 0 0 0 #bebebe, inset 0 0 0 #ffffff;
 
   /* HOVER ON, no delay */
@@ -258,11 +258,11 @@ select {
 }
 
 /* ADD CARD - H2 PLUS */
-.contact-card-add .inner h2 {
+.card-add .inner h2 {
   margin: 0;
   transition: ease scale 0.5s;
 }
-.contact-card-add:hover .inner h2 {
+.card-add:hover .inner h2 {
   scale: 1.4;
 }
 
