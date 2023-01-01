@@ -60,22 +60,24 @@ function Login({ setLoggedInUser }) {
         <h1>Login</h1>
 
         <form onSubmit={handleLoginSubmit}>
-          <label className="section-bar-input">
-            Email
+          <label for="email">Email</label>
+          <div className="section-bar-input">
             <input
+              id="email"
               className="bar-input"
               type="email"
               placeholder="Email address"
             />
-          </label>
-          <label className="section-bar-input">
-            Password
+          </div>
+          <label for="password">Password</label>
+          <div className="section-bar-input">
             <input
+              id="password"
               className="bar-input"
               type="password"
               placeholder="Password"
             />
-          </label>
+          </div>
 
           <section>
             <button className="action-button" type="submit">

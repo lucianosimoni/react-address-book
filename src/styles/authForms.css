@@ -5,13 +5,19 @@
   align-items: center;
 }
 
-/* Labels in Form */
-.authForms-main form label {
+/* Div in Form */
+.authForms-main form div {
   display: flex;
   flex-direction: column;
   width: 50vw;
   padding: 0;
   margin-bottom: 1rem;
+}
+
+/* Labels */
+.authForms-main label {
+  z-index: 1000;
+  position: relative;
 }
 
 /* Submit button */
@@ -33,6 +39,12 @@
 
   transition: ease filter 0.1s;
 }
+.authForms-main form section button:hover {
+  filter: brightness(92%);
+}
+.authForms-main form section button:active {
+  filter: brightness(88%);
+}
 
 /* Error popup */
 .auth-error-div {
@@ -46,7 +58,7 @@
   margin: 1rem;
 
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: white;
+  background-color: #e1e1e1;
   border-top: 20px solid tomato;
   border-radius: 1rem;
 }
@@ -55,8 +67,16 @@
 }
 .auth-error-div button {
   cursor: pointer;
-  background-color: turquoise;
-  border-radius: 1rem;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 6px 6px 12px #cacaca, -6px -6px 12px #f6f6f6;
   border: 0;
   margin: 1rem 0;
+  transition: ease filter 0.2s;
+}
+.auth-error-div button:hover {
+  filter: brightness(92%);
+}
+.auth-error-div button:active {
+  filter: brightness(88%);
 }

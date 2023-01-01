@@ -59,6 +59,7 @@ export default function App() {
         />
       </Routes>
 
+      {/* Login button */}
       <div
         className="profile-button"
         onClick={

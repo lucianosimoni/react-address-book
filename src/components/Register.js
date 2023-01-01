@@ -68,33 +68,36 @@ function Register({ setLoggedInUser }) {
         <h1>Register</h1>
 
         <form className="register-form" onSubmit={handleRegisterSubmit}>
-          <label className="section-bar-input">
-            Name
+          <label for="name">Name</label>
+          <div className="section-bar-input">
             <input
+              id="name"
               className="bar-input"
               type="text"
               placeholder="ex: Jorge Potato"
               required
             />
-          </label>
-          <label className="section-bar-input">
-            Email
+          </div>
+          <label for="email">Email</label>
+          <div className="section-bar-input">
             <input
+              id="email"
               className="bar-input"
               type="email"
               placeholder="ex: jorge@email.com"
               required
             />
-          </label>
-          <label className="section-bar-input">
-            Password
+          </div>
+          <label for="password">Password</label>
+          <div className="section-bar-input">
             <input
+              id="password"
               className="bar-input"
               type="password"
               placeholder="Enter a password"
               required
             />
-          </label>
+          </div>
 
           <section>
             <button
