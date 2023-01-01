@@ -8,7 +8,7 @@ function ContactEdit() {
       <NavigationRail />
 
       <main>
-        <p>Hi I am editing {urlParams.id}</p>
+        <h1>Hi I am editing {urlParams.id}</h1>
       </main>
     </>
   );

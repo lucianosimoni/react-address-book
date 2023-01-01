@@ -45,38 +45,3 @@
 .authForms-main form section button:active {
   filter: brightness(88%);
 }
-
-/* Error popup */
-.auth-error-div {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  right: 0;
-  bottom: 0;
-
-  padding: 0 1rem;
-  margin: 1rem;
-
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: #e1e1e1;
-  border-top: 20px solid tomato;
-  border-radius: 1rem;
-}
-.auth-error-div h1 {
-  margin: 0;
-}
-.auth-error-div button {
-  cursor: pointer;
-  border-radius: 50px;
-  background: #e0e0e0;
-  box-shadow: 6px 6px 12px #cacaca, -6px -6px 12px #f6f6f6;
-  border: 0;
-  margin: 1rem 0;
-  transition: ease filter 0.2s;
-}
-.auth-error-div button:hover {
-  filter: brightness(92%);
-}
-.auth-error-div button:active {
-  filter: brightness(88%);
-}

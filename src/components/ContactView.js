@@ -18,6 +18,10 @@ function ContactView() {
       <NavigationRail />
 
       <main>
+        <header>
+          <h1>Name of the contact</h1>
+        </header>
+
         <div>
           <h2>
             {contact.firstName} {contact.lastName}

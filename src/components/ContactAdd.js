@@ -5,7 +5,7 @@ import "../styles/contactAdd.css";
 import { database } from "../utils/Firebase";
 import NavigationRail from "./NavigationRail";
 
-function ContactAdd({ loggedInUser }) {
+function ContactAdd({ loggedInUser, userData }) {
   const [data, setData] = useState({
     // type: "", //TYPE - REQUIRED
     // name: "", //NAME - REQUIRED
@@ -31,6 +31,7 @@ function ContactAdd({ loggedInUser }) {
   });
   const [formPage, setFormPage] = useState(1);
   const [meetings, setMeetings] = useState([]); //Meetings is always updated, and then sent to Data
+  const [errorMessage, setErrorMessage] = useState([false, "", ""]);
 
   const navigate = useNavigate();
   const contactsRef = ref(database, `/users/${loggedInUser.uid}/contacts/`);
@@ -43,6 +44,22 @@ function ContactAdd({ loggedInUser }) {
   function handlePageFormSubmit(event) {
     event.preventDefault();
     const formElements = event.target; // Object
+
+    if (formPage === 1) {
+      const inputName = formElements[0].value;
+      const found = Object.values(userData.contacts).filter(
+        (contact) => contact.name === inputName
+      );
+      if (found.length === 1) {
+        setErrorMessage([
+          true,
+          "Name already exists! - try with a new name",
+          "",
+        ]);
+
+        return;
+      }
+    }
 
     if (formPage === 3) {
       // Push to the DB
@@ -94,9 +111,24 @@ function ContactAdd({ loggedInUser }) {
     <>
       <NavigationRail />
 
+      {errorMessage[0] && (
+        <div className="error-popup-div">
+          <h1>Error</h1>
+          <span>{errorMessage[1]}</span>
+          <span>{errorMessage[2]}</span>
+          <button
+            onClick={() => {
+              setErrorMessage([false, "", ""]);
+            }}
+          >
+            Ok
+          </button>
+        </div>
+      )}
+
       <main>
         <div className="add-contact-wrapper">
-          <h1 className="contact-add-header">Creating new Contact</h1>
+          <h1>Creating new Contact</h1>
 
           {/* Render page 1 - Basic Info */}
           {formPage === 1 ? (

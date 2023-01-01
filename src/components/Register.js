@@ -50,7 +50,7 @@ function Register({ setLoggedInUser }) {
   return (
     <>
       {errorMessage[0] && (
-        <div className="auth-error-div">
+        <div className="error-popup-div">
           <h1>Error</h1>
           <span>{errorMessage[1]}</span>
           <span>{errorMessage[2]}</span>
@@ -108,6 +108,7 @@ function Register({ setLoggedInUser }) {
             </button>
           </section>
         </form>
+
         <Link to="/login">Already have an account? Click here</Link>
       </main>
     </>

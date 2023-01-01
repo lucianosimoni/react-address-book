@@ -15,6 +15,7 @@ export default function App() {
       ? JSON.parse(localStorage.getItem("loggedInUser"))
       : null
   );
+  const [userData, setUserData] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,16 +40,28 @@ export default function App() {
 
       <Routes>
         <Route element={<AuthenticateUser loggedInUser={loggedInUser} />}>
+          {/* IF LOGGED IN */}
           <Route
             path="/contacts/"
-            element={<ContactsList loggedInUser={loggedInUser} />}
+            element={
+              <ContactsList
+                loggedInUser={loggedInUser}
+                userData={userData}
+                setUserData={setUserData}
+              />
+            }
           />
-          <Route path="/contacts/:id" element={<ContactView />} />
-          <Route
-            path="/contacts/add"
-            element={<ContactAdd loggedInUser={loggedInUser} />}
-          />
-          <Route path="/contacts/edit/:id" element={<ContactEdit />} />
+          <Route element={<HasUserData userData={userData} />}>
+            {/* IF HAS USER DATA SAVED - Pass in the contacts before */}
+            <Route path="/contacts/:id" element={<ContactView />} />
+            <Route
+              path="/contacts/add"
+              element={
+                <ContactAdd loggedInUser={loggedInUser} userData={userData} />
+              }
+            />
+            <Route path="/contacts/edit/:id" element={<ContactEdit />} />
+          </Route>
         </Route>
 
         <Route
@@ -88,10 +101,22 @@ export default function App() {
   );
 }
 
-const AuthenticateUser = ({ loggedInUser, redirectPath = "/login" }) => {
+const AuthenticateUser = ({ loggedInUser }) => {
   if (!loggedInUser) {
-    return <Navigate to={redirectPath} replace />;
+    return <Navigate to={"/login"} replace />;
   }
+
+  return <Outlet />;
+};
+
+const HasUserData = ({ userData }) => {
+  console.log(userData);
+  console.log("in the has user data checker");
+  if (!userData) {
+    console.log("no user data");
+    return <Navigate to={"/contacts"} replace />;
+  }
+  console.log("There is user data");
 
   return <Outlet />;
 };

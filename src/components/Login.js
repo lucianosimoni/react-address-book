@@ -42,7 +42,7 @@ function Login({ setLoggedInUser }) {
   return (
     <>
       {errorMessage[0] && (
-        <div className="auth-error-div">
+        <div className="error-popup-div">
           <h1>Error</h1>
           <span>{errorMessage[1]}</span>
           <span>{errorMessage[2]}</span>
@@ -85,6 +85,7 @@ function Login({ setLoggedInUser }) {
             </button>
           </section>
         </form>
+
         <Link to="/register">No account? Create one here</Link>
       </main>
     </>

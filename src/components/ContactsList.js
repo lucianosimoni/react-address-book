@@ -1,12 +1,11 @@
 import { onValue, ref } from "firebase/database";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { database } from "../utils/Firebase";
 import ContactCard from "./ContactCard";
 import NavigationRail from "./NavigationRail";
 
-function ContactsList({ loggedInUser }) {
-  const [userData, setUserData] = useState({});
+function ContactsList({ loggedInUser, userData, setUserData }) {
   const userRef = ref(database, `/users/${loggedInUser.uid}`);
 
   // Get User Data from Database
@@ -23,10 +22,11 @@ function ContactsList({ loggedInUser }) {
 
       <main>
         <header>
-          <h2>Contacts</h2>
+          <h1>Contacts</h1>
         </header>
+
         <div className="contacts-list">
-          {userData.contacts
+          {userData
             ? Object.values(userData.contacts).map((contact, index) => {
                 return (
                   <ContactCard
