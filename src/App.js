@@ -5,7 +5,6 @@ import ContactsList from "./components/ContactsList";
 import ContactAdd from "./components/ContactAdd";
 import ContactEdit from "./components/ContactEdit";
 import ContactView from "./components/ContactView";
-import TestPage from "./components/TestPage";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import "./styles/styles.css";
@@ -50,10 +49,6 @@ export default function App() {
             element={<ContactAdd loggedInUser={loggedInUser} />}
           />
           <Route path="/contacts/edit/:id" element={<ContactEdit />} />
-          <Route
-            path="/testpage"
-            element={<TestPage loggedInUser={loggedInUser} />}
-          />
         </Route>
 
         <Route
@@ -66,7 +61,7 @@ export default function App() {
         />
       </Routes>
 
-      {/* Login button */}
+      {/* User button */}
       <div
         className="profile-button"
         onClick={
