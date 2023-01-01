@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import ContactsList from "./components/ContactsList";
@@ -11,8 +11,16 @@ import Register from "./components/Register";
 import "./styles/styles.css";
 
 export default function App() {
-  const [loggedInUser, setLoggedInUser] = useState();
+  const [loggedInUser, setLoggedInUser] = useState(
+    localStorage.getItem("loggedInUser")
+      ? JSON.parse(localStorage.getItem("loggedInUser"))
+      : null
+  );
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+  }, [loggedInUser]);
 
   return (
     <>

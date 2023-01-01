@@ -55,7 +55,6 @@ function ContactAdd({ loggedInUser }) {
     for (const element of formElements) {
       if (element.id === "") continue;
 
-      console.log(element.id);
       if (element.id === "type") {
         dataClone[element.id] = element.checked ? "work" : "personal";
         continue;
@@ -99,7 +98,7 @@ function ContactAdd({ loggedInUser }) {
         <div className="add-contact-wrapper">
           <h1 className="contact-add-header">Creating new Contact</h1>
 
-          {/* Render page 1 form or nothing */}
+          {/* Render page 1 - Basic Info */}
           {formPage === 1 ? (
             <form className="first-page-form" onSubmit={handlePageFormSubmit}>
               <section className="sec-name section-bar-input">
@@ -194,7 +193,7 @@ function ContactAdd({ loggedInUser }) {
             </form>
           ) : null}
 
-          {/* Render page 2 form or nothing */}
+          {/* Render page 2 - Address form */}
           {formPage === 2 ? (
             <form className="second-page-form" onSubmit={handlePageFormSubmit}>
               <section className="sec-country section-bar-input">
@@ -244,24 +243,24 @@ function ContactAdd({ loggedInUser }) {
 
               <section className="sec-actions">
                 <button
-                  className="cancel-btn"
+                  className="action-btn"
                   onClick={() => {
                     navigate("/contacts/");
                   }}
                 >
                   Cancel
                 </button>
-                <button className="continue-btn" type="submit">
+                <button className="action-btn" type="submit">
                   Continue
                 </button>
               </section>
             </form>
           ) : null}
 
-          {/* Render page 3 form or nothing */}
+          {/* Render page 3 - Meetings Page */}
           {formPage === 3 ? (
             <form className="third-page-form" onSubmit={handlePageFormSubmit}>
-              <h2>Meetings</h2>
+              <h2>Add meetings to that contact</h2>
 
               {/* Meeting Cards */}
               <div className="contacts-list">
@@ -350,7 +349,7 @@ function ContactAdd({ loggedInUser }) {
 
               <section className="sec-actions">
                 <button
-                  className="cancel-btn"
+                  className="action-btn"
                   onClick={() => {
                     navigate("/contacts/");
                   }}

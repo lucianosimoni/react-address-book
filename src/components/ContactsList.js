@@ -28,7 +28,6 @@ function ContactsList({ loggedInUser }) {
         <div className="contacts-list">
           {userData.contacts
             ? Object.values(userData.contacts).map((contact, index) => {
-                console.log(Object.keys(userData.contacts));
                 return (
                   <ContactCard
                     key={index}
