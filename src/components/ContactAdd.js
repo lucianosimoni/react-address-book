@@ -47,17 +47,19 @@ function ContactAdd({ loggedInUser, userData }) {
 
     if (formPage === 1) {
       const inputName = formElements[0].value;
-      const found = Object.values(userData.contacts).filter(
-        (contact) => contact.name === inputName
-      );
-      if (found.length === 1) {
-        setErrorMessage([
-          true,
-          "Name already exists! - try with a new name",
-          "",
-        ]);
+      if (userData.contacts) {
+        const found = Object.values(userData.contacts).filter(
+          (contact) => contact.name === inputName
+        );
+        if (found.length === 1) {
+          setErrorMessage([
+            true,
+            "Name already exists! - try with a new name",
+            "",
+          ]);
 
-        return;
+          return;
+        }
       }
     }
 

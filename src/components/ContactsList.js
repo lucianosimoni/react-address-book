@@ -27,17 +27,19 @@ function ContactsList({ loggedInUser, userData, setUserData }) {
 
         <div className="cards-list">
           {userData
-            ? Object.values(userData.contacts).map((contact, index) => {
-                return (
-                  <ContactCard
-                    key={index}
-                    name={contact.name}
-                    username={contact.username}
-                    email={contact.email}
-                    type={contact.type}
-                  />
-                );
-              })
+            ? userData.contacts
+              ? Object.values(userData.contacts).map((contact, index) => {
+                  return (
+                    <ContactCard
+                      key={index}
+                      name={contact.name}
+                      username={contact.username}
+                      email={contact.email}
+                      type={contact.type}
+                    />
+                  );
+                })
+              : null
             : null}
 
           {/* ADD CONTACT CARD */}
