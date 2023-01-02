@@ -1,6 +1,6 @@
 {
   "name": "address-book-react",
-  "homepage": "https://lucianosimoni.github.io/react-address-book/contacts/",
+  "homepage": "https://lucianosimoni.github.io/react-address-book/",
   "version": "1.0.0",
   "description": "Address Book using react and Firebase",
   "keywords": [],

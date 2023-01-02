@@ -39,6 +39,8 @@ export default function App() {
       </HelmetProvider>
 
       <Routes>
+        <Route path="/" element={<Navigate to={"/contacts"} replace />} />
+
         <Route element={<AuthenticateUser loggedInUser={loggedInUser} />}>
           {/* IF LOGGED IN */}
           <Route
