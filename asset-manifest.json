@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-address-book/static/css/main.562d0e88.css",
-    "main.js": "/react-address-book/static/js/main.7ddd26a4.js",
+    "main.css": "/react-address-book/static/css/main.96c6a06e.css",
+    "main.js": "/react-address-book/static/js/main.4353fe35.js",
     "index.html": "/react-address-book/index.html",
-    "main.562d0e88.css.map": "/react-address-book/static/css/main.562d0e88.css.map",
-    "main.7ddd26a4.js.map": "/react-address-book/static/js/main.7ddd26a4.js.map"
+    "main.96c6a06e.css.map": "/react-address-book/static/css/main.96c6a06e.css.map",
+    "main.4353fe35.js.map": "/react-address-book/static/js/main.4353fe35.js.map"
   },
   "entrypoints": [
-    "static/css/main.562d0e88.css",
-    "static/js/main.7ddd26a4.js"
+    "static/css/main.96c6a06e.css",
+    "static/js/main.4353fe35.js"
   ]
 }
