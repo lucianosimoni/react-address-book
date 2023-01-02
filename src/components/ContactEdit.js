@@ -85,174 +85,210 @@ function ContactEdit({ loggedInUser, userData }) {
         </header>
 
         <form onSubmit={(event) => handleFormSubmit(event)}>
-          <section className="sec-profile-edit">
-            <h2>Profile</h2>
-            <label htmlFor="name">Name:</label>
-            <input id="name" type="text" defaultValue={contactData.name} />
+          <div className="contact-edit-grid">
+            <section className="sec-profile-edit">
+              <h2>Profile</h2>
 
-            <label htmlFor="username">Username:</label>
-            <input
-              id="username"
-              type="text"
-              defaultValue={contactData.username}
-            />
+              <label htmlFor="name">Name:</label>
+              <input
+                id="name"
+                className="bar-input section-bar-input"
+                type="text"
+                defaultValue={contactData.name}
+              />
 
-            <label htmlFor="type">Work:</label>
-            <input
-              id="type"
-              type="checkbox"
-              defaultChecked={contactData.type === "work"}
-            />
+              <label htmlFor="username">Username:</label>
+              <input
+                id="username"
+                className="bar-input section-bar-input"
+                type="text"
+                defaultValue={contactData.username}
+              />
 
-            <label htmlFor="mobile">Mobile:</label>
-            <input id="mobile" type="text" defaultValue={contactData.mobile} />
+              <label htmlFor="type">Work:</label>
+              <input
+                id="type"
+                className="bar-input section-bar-input"
+                type="checkbox"
+                defaultChecked={contactData.type === "work"}
+              />
 
-            <label htmlFor="email">email:</label>
-            <input id="email" type="text" defaultValue={contactData.email} />
+              <label htmlFor="mobile">Mobile:</label>
+              <input
+                id="mobile"
+                className="bar-input section-bar-input"
+                type="text"
+                defaultValue={contactData.mobile}
+              />
 
-            <label htmlFor="linkedin">linkedin:</label>
-            <input
-              id="linkedin"
-              type="text"
-              defaultValue={contactData.linkedin}
-            />
+              <label htmlFor="email">Email:</label>
+              <input
+                id="email"
+                className="bar-input section-bar-input"
+                type="text"
+                defaultValue={contactData.email}
+              />
 
-            <label htmlFor="twitter">twitter:</label>
-            <input
-              id="twitter"
-              type="text"
-              defaultValue={contactData.twitter}
-            />
-          </section>
+              <label htmlFor="linkedin">Linkedin:</label>
+              <input
+                id="linkedin"
+                className="bar-input section-bar-input"
+                type="text"
+                defaultValue={contactData.linkedin}
+              />
 
-          <section className="sec-address-edit">
-            <h2>Address</h2>
+              <label htmlFor="twitter">Twitter:</label>
+              <input
+                id="twitter"
+                className="bar-input section-bar-input"
+                type="text"
+                defaultValue={contactData.twitter}
+              />
+            </section>
 
-            <label htmlFor="country">country:</label>
-            <input
-              id="country"
-              type="text"
-              defaultValue={contactData.country}
-            />
+            <section className="sec-address-edit">
+              <h2>Address</h2>
 
-            <label htmlFor="city">city:</label>
-            <input id="city" type="text" defaultValue={contactData.city} />
+              <label htmlFor="country">Country:</label>
+              <input
+                id="country"
+                className="bar-input section-bar-input"
+                type="text"
+                defaultValue={contactData.country}
+              />
 
-            <label htmlFor="street">street:</label>
-            <input id="street" type="text" defaultValue={contactData.street} />
+              <label htmlFor="city">City:</label>
+              <input
+                id="city"
+                className="bar-input section-bar-input"
+                type="text"
+                defaultValue={contactData.city}
+              />
 
-            <label htmlFor="postcode">postcode:</label>
-            <input
-              id="postcode"
-              type="text"
-              defaultValue={contactData.postcode}
-            />
+              <label htmlFor="street">Street:</label>
+              <input
+                id="street"
+                className="bar-input section-bar-input"
+                type="text"
+                defaultValue={contactData.street}
+              />
 
-            <label htmlFor="remarks">remarks:</label>
-            <input
-              id="remarks"
-              type="text"
-              defaultValue={contactData.remarks}
-            />
-          </section>
+              <label htmlFor="postcode">Postcode:</label>
+              <input
+                id="postcode"
+                className="bar-input section-bar-input"
+                type="text"
+                defaultValue={contactData.postcode}
+              />
 
-          <section className="sec-meetings-edit">
-            <h2>Meetings</h2>
+              <label htmlFor="remarks">Remarks:</label>
+              <input
+                id="remarks"
+                className="bar-input section-bar-input"
+                type="text"
+                defaultValue={contactData.remarks}
+              />
+            </section>
 
-            {/* Meeting Cards */}
-            <div className="cards-list">
-              {data.meetings
-                ? data.meetings.map((meeting, index) => {
-                    return (
-                      <div className="card noselect" key={index}>
-                        <input
-                          id="title"
-                          type="text"
-                          placeholder="Meeting Name *"
-                          defaultValue={meeting.title}
-                          onChange={(event) => {
-                            const meetingSpread = [...data.meetings];
-                            meetingSpread[index].title = event.target.value;
-                            setData({
-                              ...data,
-                              meetings: meetingSpread,
-                            });
-                          }}
-                          required
-                        />
+            <section className="sec-meetings-edit">
+              <h2>Meetings</h2>
 
-                        <label htmlFor="location">Location:</label>
-                        <input
-                          id="location"
-                          type="text"
-                          placeholder="ex: London"
-                          defaultValue={meeting.location}
-                          onChange={(event) => {
-                            const meetingSpread = [...data.meetings];
-                            meetingSpread[index].location = event.target.value;
-                            setData({
-                              ...data,
-                              meetings: meetingSpread,
-                            });
-                          }}
-                          required
-                        ></input>
+              {/* Meeting Cards */}
+              <div className="cards-list">
+                {data.meetings
+                  ? data.meetings.map((meeting, index) => {
+                      return (
+                        <div className="card noselect" key={index}>
+                          <input
+                            id="title"
+                            type="text"
+                            placeholder="Meeting Name *"
+                            defaultValue={meeting.title}
+                            onChange={(event) => {
+                              const meetingSpread = [...data.meetings];
+                              meetingSpread[index].title = event.target.value;
+                              setData({
+                                ...data,
+                                meetings: meetingSpread,
+                              });
+                            }}
+                            required
+                          />
 
-                        <label htmlFor="date">Date:</label>
-                        <input
-                          id="date"
-                          type="date"
-                          placeholder="dd-MM-yyyy"
-                          defaultValue={meeting.date}
-                          onChange={(event) => {
-                            const meetingSpread = [...data.meetings];
-                            meetingSpread[index].date = event.target.value;
-                            setData({
-                              ...data,
-                              meetings: meetingSpread,
-                            });
-                          }}
-                          required
-                        />
+                          <label htmlFor="location">Location:</label>
+                          <input
+                            id="location"
+                            type="text"
+                            placeholder="ex: London"
+                            defaultValue={meeting.location}
+                            onChange={(event) => {
+                              const meetingSpread = [...data.meetings];
+                              meetingSpread[index].location =
+                                event.target.value;
+                              setData({
+                                ...data,
+                                meetings: meetingSpread,
+                              });
+                            }}
+                            required
+                          ></input>
 
-                        <label htmlFor="time">Time:</label>
-                        <input
-                          id="time"
-                          type="time"
-                          placeholder="hh:mm"
-                          defaultValue={meeting.time}
-                          onChange={(event) => {
-                            const meetingSpread = [...data.meetings];
-                            meetingSpread[index].time = event.target.value;
-                            setData({
-                              ...data,
-                              meetings: meetingSpread,
-                            });
-                          }}
-                          required
-                        />
+                          <label htmlFor="date">Date:</label>
+                          <input
+                            id="date"
+                            type="date"
+                            placeholder="dd-MM-yyyy"
+                            defaultValue={meeting.date}
+                            onChange={(event) => {
+                              const meetingSpread = [...data.meetings];
+                              meetingSpread[index].date = event.target.value;
+                              setData({
+                                ...data,
+                                meetings: meetingSpread,
+                              });
+                            }}
+                            required
+                          />
 
-                        <div
-                          className="edit-btn"
-                          onClick={() => deleteMeeting(meeting)}
-                        >
-                          <span className="material-symbols-outlined">
-                            delete
-                          </span>
+                          <label htmlFor="time">Time:</label>
+                          <input
+                            id="time"
+                            type="time"
+                            placeholder="hh:mm"
+                            defaultValue={meeting.time}
+                            onChange={(event) => {
+                              const meetingSpread = [...data.meetings];
+                              meetingSpread[index].time = event.target.value;
+                              setData({
+                                ...data,
+                                meetings: meetingSpread,
+                              });
+                            }}
+                            required
+                          />
+
+                          <div
+                            className="edit-btn"
+                            onClick={() => deleteMeeting(meeting)}
+                          >
+                            <span className="material-symbols-outlined">
+                              delete
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })
-                : null}
+                      );
+                    })
+                  : null}
 
-              {/* Add Meeting Card */}
-              <div className="card-add noselect" onClick={createMeeting}>
-                <div className="inner">
-                  <h2>+</h2>
+                {/* Add Meeting Card */}
+                <div className="card-add noselect" onClick={createMeeting}>
+                  <div className="inner">
+                    <h2>+</h2>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
 
           <section className="sec-actions">
             <button className="action-btn" onClick={deleteContact}>

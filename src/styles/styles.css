@@ -339,3 +339,38 @@ select {
 .error-popup-div button:active {
   filter: brightness(88%);
 }
+
+/* ContactEdit */
+.contact-edit-grid {
+  display: grid;
+  grid-template:
+    "profile address" auto
+    "meetings meetings" auto /
+    1fr 1fr;
+}
+.contact-edit-grid label {
+  z-index: 100;
+}
+.contact-edit-grid input {
+  margin-bottom: 1rem;
+}
+.contact-edit-grid h2 {
+  margin-top: 0;
+}
+.contact-edit-grid .sec-profile-edit {
+  grid-area: profile;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 1rem 1rem;
+  margin-bottom: 1rem;
+}
+.contact-edit-grid .sec-address-edit {
+  grid-area: address;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 1rem 1rem;
+  margin-bottom: 1rem;
+}
+.contact-edit-grid .sec-meetings-edit {
+  grid-area: meetings;
+}
