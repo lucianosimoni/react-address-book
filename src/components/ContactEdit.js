@@ -106,12 +106,15 @@ function ContactEdit({ loggedInUser, userData }) {
               />
 
               <label htmlFor="type">Work:</label>
-              <input
-                id="type"
-                className="bar-input section-bar-input"
-                type="checkbox"
-                defaultChecked={contactData.type === "work"}
-              />
+              <label className="switch">
+                <input
+                  id="type"
+                  className="bar-input"
+                  type="checkbox"
+                  defaultChecked={contactData.type === "work"}
+                />
+                <span className="slider"></span>
+              </label>
 
               <label htmlFor="mobile">Mobile:</label>
               <input

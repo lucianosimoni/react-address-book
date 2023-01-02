@@ -357,6 +357,9 @@ select {
 .contact-edit-grid h2 {
   margin-top: 0;
 }
+.contact-edit-grid .switch {
+  margin-bottom: 1rem;
+}
 .contact-edit-grid .sec-profile-edit {
   grid-area: profile;
   display: flex;

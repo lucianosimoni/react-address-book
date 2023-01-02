@@ -199,12 +199,7 @@ function ContactAdd({ loggedInUser, userData }) {
               <section className="sec-type">
                 <p>Work Contact:</p>
                 <label className="switch" id="switch">
-                  <input
-                    id="type"
-                    className="bar-input"
-                    type="checkbox"
-                    name="1000054"
-                  />
+                  <input id="type" className="bar-input" type="checkbox" />
                   <span className="slider"></span>
                 </label>
               </section>
