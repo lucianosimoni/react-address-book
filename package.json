@@ -1,8 +1,8 @@
 {
   "name": "address-book-react",
-  "homepage": "https://lucianosimoni.github.io/react-address-book/contacts",
+  "homepage": "https://lucianosimoni.github.io/react-address-book/contacts/",
   "version": "1.0.0",
-  "description": "",
+  "description": "Address Book using react and Firebase",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
