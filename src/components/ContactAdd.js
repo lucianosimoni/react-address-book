@@ -331,7 +331,6 @@ function ContactAdd({ loggedInUser, userData }) {
                         type="date"
                         id="date"
                         placeholder="dd-MM-yyyy"
-                        // defaultValue="2022-02-02"
                         onChange={(event) => {
                           const meetingsArray = [...meetings];
                           meetingsArray[index].date = event.target.value;
@@ -346,7 +345,6 @@ function ContactAdd({ loggedInUser, userData }) {
                         placeholder="hh:mm"
                         id="time"
                         type="time"
-                        // defaultValue="13:00"
                         onChange={(event) => {
                           const meetingsArray = [...meetings];
                           meetingsArray[index].time = event.target.value;

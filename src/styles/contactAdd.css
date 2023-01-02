@@ -189,7 +189,7 @@ input:checked + .slider:before {
   grid-auto-flow: column;
   justify-content: right;
 
-  margin: 1rem 1rem 0 0;
+  margin: 1rem 1rem 1rem 0;
 
   gap: 1rem;
 }
