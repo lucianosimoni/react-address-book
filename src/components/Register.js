@@ -26,7 +26,7 @@ function Register({ setLoggedInUser }) {
           contacts: {},
           name: userName,
         });
-        navigate("/contacts");
+        navigate("/react-address-book/contacts");
       })
       .catch((error) => {
         const errorCode = error.code;

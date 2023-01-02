@@ -39,12 +39,15 @@ export default function App() {
       </HelmetProvider>
 
       <Routes>
-        <Route path="/" element={<Navigate to={"/contacts"} replace />} />
+        <Route
+          path="/react-address-book/"
+          element={<Navigate to={"/react-address-book/contacts"} replace />}
+        />
 
         <Route element={<AuthenticateUser loggedInUser={loggedInUser} />}>
           {/* IF LOGGED IN */}
           <Route
-            path="/contacts/"
+            path="/react-address-book/contacts"
             element={
               <ContactsList
                 loggedInUser={loggedInUser}
@@ -56,19 +59,19 @@ export default function App() {
           <Route element={<HasUserData userData={userData} />}>
             {/* IF HAS USER DATA SAVED - Pass in the contacts before */}
             <Route
-              path="/contacts/add"
+              path="/react-address-book/contacts/add"
               element={
                 <ContactAdd loggedInUser={loggedInUser} userData={userData} />
               }
             />
             <Route
-              path="/contacts/:name"
+              path="/react-address-book/contacts/:name"
               element={
                 <ContactView loggedInUser={loggedInUser} userData={userData} />
               }
             />
             <Route
-              path="/contacts/edit/:name"
+              path="/react-address-book/contacts/edit/:name"
               element={
                 <ContactEdit loggedInUser={loggedInUser} userData={userData} />
               }
@@ -77,11 +80,11 @@ export default function App() {
         </Route>
 
         <Route
-          path="/login"
+          path="/react-address-book/login"
           element={<Login setLoggedInUser={setLoggedInUser} />}
         />
         <Route
-          path="/register"
+          path="/react-address-book/register"
           element={<Register setLoggedInUser={setLoggedInUser} />}
         />
       </Routes>
@@ -93,9 +96,9 @@ export default function App() {
           loggedInUser
             ? () => {
                 setLoggedInUser(null);
-                navigate("/login");
+                navigate("/react-address-book/login");
               }
-            : () => navigate("/login")
+            : () => navigate("/react-address-book/login")
         }
       >
         {loggedInUser ? (
@@ -114,11 +117,13 @@ export default function App() {
 }
 
 const AuthenticateUser = ({ loggedInUser }) => {
-  if (!loggedInUser) return <Navigate to={"/login"} replace />;
+  if (!loggedInUser)
+    return <Navigate to={"/react-address-book/login"} replace />;
   return <Outlet />;
 };
 
 const HasUserData = ({ userData }) => {
-  if (!userData) return <Navigate to={"/contacts"} replace />;
+  if (!userData)
+    return <Navigate to={"/react-address-book/contacts"} replace />;
   return <Outlet />;
 };

@@ -44,7 +44,7 @@ function ContactEdit({ loggedInUser, userData }) {
 
     update(contactRef, localData);
     setData({ ...data, ...localData });
-    navigate("/contacts");
+    navigate("/react-address-book/contacts");
   }
 
   function createMeeting() {
@@ -72,7 +72,7 @@ function ContactEdit({ loggedInUser, userData }) {
 
   function deleteContact() {
     remove(contactRef);
-    navigate("/contacts");
+    navigate("/react-address-book/contacts");
   }
 
   return (
@@ -299,7 +299,7 @@ function ContactEdit({ loggedInUser, userData }) {
             </button>
             <button
               className="action-btn"
-              onClick={() => navigate("/contacts")}
+              onClick={() => navigate("/react-address-book/contacts")}
             >
               Cancel
             </button>

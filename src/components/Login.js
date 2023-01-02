@@ -18,7 +18,7 @@ function Login({ setLoggedInUser }) {
       .then((userCredential) => {
         // Signed in
         setLoggedInUser(userCredential.user);
-        navigate("/contacts");
+        navigate("/react-address-book/contacts");
       })
       .catch((error) => {
         const errorCode = error.code;

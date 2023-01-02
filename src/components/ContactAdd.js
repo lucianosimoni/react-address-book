@@ -64,7 +64,7 @@ function ContactAdd({ loggedInUser, userData }) {
     if (formPage === 3) {
       // Push to the DB
       push(contactsRef, data);
-      navigate("/contacts");
+      navigate("/react-address-book/contacts");
       return;
     }
 
@@ -208,7 +208,7 @@ function ContactAdd({ loggedInUser, userData }) {
                 <button
                   className="action-btn"
                   onClick={() => {
-                    navigate("/contacts/");
+                    navigate("/react-address-book/contacts");
                   }}
                 >
                   Cancel
@@ -272,7 +272,7 @@ function ContactAdd({ loggedInUser, userData }) {
                 <button
                   className="action-btn"
                   onClick={() => {
-                    navigate("/contacts/");
+                    navigate("/react-address-book/contacts");
                   }}
                 >
                   Cancel
@@ -373,7 +373,7 @@ function ContactAdd({ loggedInUser, userData }) {
                 <button
                   className="action-btn"
                   onClick={() => {
-                    navigate("/contacts/");
+                    navigate("/react-address-book/contacts");
                   }}
                 >
                   Cancel
