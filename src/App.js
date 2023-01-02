@@ -8,6 +8,7 @@ import ContactView from "./components/ContactView";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import "./styles/styles.css";
+import About from "./components/About";
 
 export default function App() {
   const [loggedInUser, setLoggedInUser] = useState(
@@ -43,6 +44,8 @@ export default function App() {
           path="/react-address-book/"
           element={<Navigate to={"/react-address-book/contacts"} replace />}
         />
+
+        <Route path="/react-address-book/about" element={<About />} />
 
         <Route element={<AuthenticateUser loggedInUser={loggedInUser} />}>
           {/* IF LOGGED IN */}
