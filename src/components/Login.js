@@ -86,7 +86,9 @@ function Login({ setLoggedInUser }) {
           </section>
         </form>
 
-        <Link to="/register">No account? Create one here</Link>
+        <Link to="/react-address-book/register">
+          No account? Create one here
+        </Link>
       </main>
     </>
   );

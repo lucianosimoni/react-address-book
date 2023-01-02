@@ -41,7 +41,10 @@ function ContactsList({ loggedInUser, userData, setUserData }) {
             : null}
 
           {/* ADD CONTACT CARD */}
-          <Link className="link noselect" to={"/contacts/add/"}>
+          <Link
+            className="link noselect"
+            to={"/react-address-book/contacts/add/"}
+          >
             <div className="card-add noselect">
               <div className="inner">
                 <h2>+</h2>

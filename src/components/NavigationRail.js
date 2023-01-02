@@ -6,7 +6,7 @@ function NavigationRail() {
       <h2>Address Book</h2>
       <ul>
         <li>
-          <Link to={"/contacts"}>Contacts List</Link>
+          <Link to={"/react-address-book/contacts"}>Contacts List</Link>
         </li>
       </ul>
     </nav>

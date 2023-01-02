@@ -12,7 +12,7 @@ function ContactCard({ name, username, email, type }) {
       <p>{username}</p>
       <button className="view-btn">View</button>
 
-      <Link to={`/contacts/edit/${name}`}>
+      <Link to={`/react-address-book/contacts/edit/${name}`}>
         <div className="edit-btn">
           <span className="material-symbols-outlined">edit</span>
         </div>

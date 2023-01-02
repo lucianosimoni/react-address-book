@@ -109,7 +109,9 @@ function Register({ setLoggedInUser }) {
           </section>
         </form>
 
-        <Link to="/login">Already have an account? Click here</Link>
+        <Link to="/react-address-book/login">
+          Already have an account? Click here
+        </Link>
       </main>
     </>
   );
