@@ -61,32 +61,36 @@ function Login({ setLoggedInUser }) {
 
         <form onSubmit={handleLoginSubmit}>
           <label htmlFor="email">Email</label>
-          <div className="section-bar-input">
+          <section className="section-bar-input">
+            <span className="material-symbols-outlined">alternate_email</span>
             <input
               id="email"
               className="bar-input"
               type="email"
               placeholder="Email address"
+              tabIndex={1}
             />
-          </div>
+          </section>
           <label htmlFor="password">Password</label>
-          <div className="section-bar-input">
+          <section className="section-bar-input">
+            <span className="material-symbols-outlined">password</span>
             <input
               id="password"
               className="bar-input"
               type="password"
               placeholder="Password"
+              tabIndex={2}
             />
-          </div>
+          </section>
 
           <section>
-            <button className="action-button" type="submit">
+            <button className="action-button" type="submit" tabIndex={3}>
               Login
             </button>
           </section>
         </form>
 
-        <Link to="/react-address-book/register">
+        <Link to="/react-address-book/register" tabIndex={4}>
           No account? Create one here
         </Link>
       </main>

@@ -103,6 +103,7 @@ export default function App() {
               }
             : () => navigate("/react-address-book/login")
         }
+        tabIndex={10}
       >
         {loggedInUser ? (
           <>

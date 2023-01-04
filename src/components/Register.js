@@ -69,7 +69,8 @@ function Register({ setLoggedInUser }) {
 
         <form className="register-form" onSubmit={handleRegisterSubmit}>
           <label htmlFor="name">Name</label>
-          <div className="section-bar-input">
+          <section className="section-bar-input">
+            <span className="material-symbols-outlined">badge</span>
             <input
               id="name"
               className="bar-input"
@@ -77,9 +78,10 @@ function Register({ setLoggedInUser }) {
               placeholder="ex: Jorge Potato"
               required
             />
-          </div>
+          </section>
           <label htmlFor="email">Email</label>
-          <div className="section-bar-input">
+          <section className="section-bar-input">
+            <span className="material-symbols-outlined">alternate_email</span>
             <input
               id="email"
               className="bar-input"
@@ -87,9 +89,10 @@ function Register({ setLoggedInUser }) {
               placeholder="ex: jorge@email.com"
               required
             />
-          </div>
+          </section>
           <label htmlFor="password">Password</label>
-          <div className="section-bar-input">
+          <section className="section-bar-input">
+            <span className="material-symbols-outlined">password</span>
             <input
               id="password"
               className="bar-input"
@@ -97,7 +100,7 @@ function Register({ setLoggedInUser }) {
               placeholder="Enter a password"
               required
             />
-          </div>
+          </section>
 
           <section>
             <button

@@ -36,9 +36,7 @@ section > span {
 .bar-input {
   width: 100%;
   height: 45px;
-
   padding: 0 1rem 0 3rem;
-  outline: none;
 
   /* Ellipsis overflow */
   text-overflow: ellipsis;
