@@ -2,11 +2,12 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/authForms.css";
-import { auth } from "../utils/Firebase";
+import { analyticsLogEvent, auth } from "../utils/Firebase";
 
 function Login({ setLoggedInUser }) {
   const [errorMessage, setErrorMessage] = useState([false, "", ""]);
   const navigate = useNavigate();
+  analyticsLogEvent("login-page");
 
   function handleLoginSubmit(event) {
     event.preventDefault();

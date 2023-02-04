@@ -1,4 +1,4 @@
-import { auth, database } from "../utils/Firebase";
+import { analyticsLogEvent, auth, database } from "../utils/Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, set } from "firebase/database";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ function Register({ setLoggedInUser }) {
   const [errorMessage, setErrorMessage] = useState([false, "", ""]);
   let userName;
   const navigate = useNavigate();
+  analyticsLogEvent("register-page");
 
   function handleRegisterSubmit(event) {
     event.preventDefault();
